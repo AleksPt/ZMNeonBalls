@@ -14,6 +14,8 @@
 		FA3BF8D12D47BFDA00420546 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C92D47BFDA00420546 /* Montserrat-SemiBold.ttf */; };
 		FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8C52D47BFDA00420546 /* ContentView.swift */; };
 		FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */; };
+		FA3BF8DB2D47C52000420546 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8DA2D47C52000420546 /* Ball.swift */; };
+		FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8DD2D47C76500420546 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FA3BF8C82D47BFDA00420546 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		FA3BF8C92D47BFDA00420546 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMNeonBallsApp.swift; sourceTree = "<group>"; };
+		FA3BF8DA2D47C52000420546 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		FA3BF8DD2D47C76500420546 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 				FA3BF8D42D47BFE200420546 /* App */,
 				FA3BF8D82D47C01600420546 /* Models */,
 				FA3BF8D92D47C02800420546 /* Screens */,
+				FA3BF8DC2D47C74800420546 /* Helpers */,
 				FA3BF8D72D47C00D00420546 /* Support */,
 				FA3BF8D52D47BFF400420546 /* Resources */,
 				FA3BF8C32D47BFDA00420546 /* Preview Content */,
@@ -114,6 +119,7 @@
 		FA3BF8D82D47C01600420546 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA3BF8DA2D47C52000420546 /* Ball.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +130,14 @@
 				FA3BF8C52D47BFDA00420546 /* ContentView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		FA3BF8DC2D47C74800420546 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8DD2D47C76500420546 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,8 +216,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3BF8DB2D47C52000420546 /* Ball.swift in Sources */,
 				FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */,
 				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
+				FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +356,7 @@
 				DEVELOPMENT_TEAM = L23B96GPNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ZMNeonBalls/Info.plist;
+				INFOPLIST_FILE = ZMNeonBalls/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NeonBalls;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -376,7 +392,7 @@
 				DEVELOPMENT_TEAM = L23B96GPNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ZMNeonBalls/Info.plist;
+				INFOPLIST_FILE = ZMNeonBalls/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NeonBalls;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
