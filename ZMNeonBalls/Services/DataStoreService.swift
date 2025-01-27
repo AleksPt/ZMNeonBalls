@@ -15,6 +15,7 @@ final class DataStoreService {
     
     private init() {
         questions = getQuestions()
+        balls = getBalls()
     }
     
     private func getQuestions() -> [Question] {
@@ -540,5 +541,202 @@ final class DataStoreService {
             )
         ]
         return questions
+    }
+    
+    private func getBalls() -> [Ball] {
+        let football = K.Texts.Balls.Football.self
+        let basketball = K.Texts.Balls.Basketball.self
+        let volleyball = K.Texts.Balls.Volleyball.self
+        let tennisball = K.Texts.Balls.Tennisball.self
+        let baseball = K.Texts.Balls.Baseball.self
+        let americanball = K.Texts.Balls.Americanball.self
+        let golfball = K.Texts.Balls.Golfball.self
+        let rugbyball = K.Texts.Balls.Rugbyball.self
+        let tabletennis = K.Texts.Balls.Tabletennis.self
+        let beachball = K.Texts.Balls.Beachball.self
+        
+        let balls = [
+            Ball(
+                title: football.title,
+                description: football.description,
+                image: K.Images.Balls.footBall,
+                info: Info(
+                    country: football.country,
+                    size: football.size,
+                    material: football.material,
+                    ballStructure: football.ballStructure,
+                    characteristic: football.characteristic
+                ),
+                fact: football.fact,
+                game: Game(
+                    title: football.gameTitle,
+                    description: football.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: basketball.title,
+                description: basketball.description,
+                image: K.Images.Balls.basketBall,
+                info: Info(
+                    country: basketball.country,
+                    size: basketball.size,
+                    material: basketball.material,
+                    ballStructure: basketball.ballStructure,
+                    characteristic: basketball.characteristic
+                ),
+                fact: basketball.fact,
+                game: Game(
+                    title: basketball.gameTitle,
+                    description: basketball.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: volleyball.title,
+                description: volleyball.description,
+                image: K.Images.Balls.volleyBall,
+                info: Info(
+                    country: volleyball.country,
+                    size: volleyball.size,
+                    material: volleyball.material,
+                    ballStructure: volleyball.ballStructure,
+                    characteristic: volleyball.characteristic
+                ),
+                fact: volleyball.fact,
+                game: Game(
+                    title: volleyball.gameTitle,
+                    description: volleyball.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: tennisball.title,
+                description: tennisball.description,
+                image: K.Images.Balls.tennisBall,
+                info: Info(
+                    country: tennisball.country,
+                    size: tennisball.size,
+                    material: tennisball.material,
+                    ballStructure: tennisball.ballStructure,
+                    characteristic: tennisball.characteristic
+                ),
+                fact: tennisball.fact,
+                game: Game(
+                    title: tennisball.gameTitle,
+                    description: tennisball.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: baseball.title,
+                description: baseball.description,
+                image: K.Images.Balls.baseBall,
+                info: Info(
+                    country: baseball.country,
+                    size: baseball.size,
+                    material: baseball.material,
+                    ballStructure: baseball.ballStructure,
+                    characteristic: baseball.characteristic
+                ),
+                fact: baseball.fact,
+                game: Game(
+                    title: baseball.gameTitle,
+                    description: baseball.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: americanball.title,
+                description: americanball.description,
+                image: K.Images.Balls.americanBall,
+                info: Info(
+                    country: americanball.country,
+                    size: americanball.size,
+                    material: americanball.material,
+                    ballStructure: americanball.ballStructure,
+                    characteristic: americanball.characteristic
+                ),
+                fact: americanball.fact,
+                game: Game(
+                    title: americanball.gameTitle,
+                    description: americanball.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: golfball.title,
+                description: golfball.description,
+                image: K.Images.Balls.golfBall,
+                info: Info(
+                    country: golfball.country,
+                    size: golfball.size,
+                    material: golfball.material,
+                    ballStructure: golfball.ballStructure,
+                    characteristic: golfball.characteristic
+                ),
+                fact: golfball.fact,
+                game: Game(
+                    title: golfball.gameTitle,
+                    description: golfball.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: rugbyball.title,
+                description: rugbyball.description,
+                image: K.Images.Balls.rugbyBall,
+                info: Info(
+                    country: rugbyball.country,
+                    size: rugbyball.size,
+                    material: rugbyball.material,
+                    ballStructure: rugbyball.ballStructure,
+                    characteristic: rugbyball.characteristic
+                ),
+                fact: rugbyball.fact,
+                game: Game(
+                    title: rugbyball.gameTitle,
+                    description: rugbyball.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: tabletennis.title,
+                description: tabletennis.description,
+                image: K.Images.Balls.tableTennisBall,
+                info: Info(
+                    country: tabletennis.country,
+                    size: tabletennis.size,
+                    material: tabletennis.material,
+                    ballStructure: tabletennis.ballStructure,
+                    characteristic: tabletennis.characteristic
+                ),
+                fact: tabletennis.fact,
+                game: Game(
+                    title: tabletennis.gameTitle,
+                    description: tabletennis.gameDescription
+                )
+            ),
+            
+            Ball(
+                title: beachball.title,
+                description: beachball.description,
+                image: K.Images.Balls.beachBall,
+                info: Info(
+                    country: beachball.country,
+                    size: beachball.size,
+                    material: beachball.material,
+                    ballStructure: beachball.ballStructure,
+                    characteristic: beachball.characteristic
+                ),
+                fact: beachball.fact,
+                game: Game(
+                    title: beachball.gameTitle,
+                    description: beachball.gameDescription
+                )
+            )
+        ]
+        
+        return balls
     }
 }
