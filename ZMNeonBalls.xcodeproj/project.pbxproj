@@ -6,17 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FA3BF8CC2D47BFDA00420546 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C22D47BFDA00420546 /* Preview Assets.xcassets */; };
+		FA3BF8CD2D47BFDA00420546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C42D47BFDA00420546 /* Assets.xcassets */; };
+		FA3BF8CF2D47BFDA00420546 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C72D47BFDA00420546 /* Montserrat-Bold.ttf */; };
+		FA3BF8D02D47BFDA00420546 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C82D47BFDA00420546 /* Montserrat-Medium.ttf */; };
+		FA3BF8D12D47BFDA00420546 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C92D47BFDA00420546 /* Montserrat-SemiBold.ttf */; };
+		FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8C52D47BFDA00420546 /* ContentView.swift */; };
+		FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		FA3BF8912D47A6E100420546 /* ZMNeonBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZMNeonBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3BF8C22D47BFDA00420546 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA3BF8C42D47BFDA00420546 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA3BF8C52D47BFDA00420546 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA3BF8C62D47BFDA00420546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3BF8C72D47BFDA00420546 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		FA3BF8C82D47BFDA00420546 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		FA3BF8C92D47BFDA00420546 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMNeonBallsApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		FA3BF8932D47A6E100420546 /* ZMNeonBalls */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ZMNeonBalls;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FA3BF88E2D47A6E000420546 /* Frameworks */ = {
@@ -32,7 +42,7 @@
 		FA3BF8882D47A6E000420546 = {
 			isa = PBXGroup;
 			children = (
-				FA3BF8932D47A6E100420546 /* ZMNeonBalls */,
+				FA3BF8CB2D47BFDA00420546 /* ZMNeonBalls */,
 				FA3BF8922D47A6E100420546 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +53,77 @@
 				FA3BF8912D47A6E100420546 /* ZMNeonBalls.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FA3BF8C32D47BFDA00420546 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8C22D47BFDA00420546 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA3BF8CB2D47BFDA00420546 /* ZMNeonBalls */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8D42D47BFE200420546 /* App */,
+				FA3BF8D82D47C01600420546 /* Models */,
+				FA3BF8D92D47C02800420546 /* Screens */,
+				FA3BF8D72D47C00D00420546 /* Support */,
+				FA3BF8D52D47BFF400420546 /* Resources */,
+				FA3BF8C32D47BFDA00420546 /* Preview Content */,
+			);
+			path = ZMNeonBalls;
+			sourceTree = "<group>";
+		};
+		FA3BF8D42D47BFE200420546 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FA3BF8D52D47BFF400420546 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8C42D47BFDA00420546 /* Assets.xcassets */,
+				FA3BF8D62D47BFFC00420546 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA3BF8D62D47BFFC00420546 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8C72D47BFDA00420546 /* Montserrat-Bold.ttf */,
+				FA3BF8C82D47BFDA00420546 /* Montserrat-Medium.ttf */,
+				FA3BF8C92D47BFDA00420546 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FA3BF8D72D47C00D00420546 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8C62D47BFDA00420546 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		FA3BF8D82D47C01600420546 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA3BF8D92D47C02800420546 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF8C52D47BFDA00420546 /* ContentView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +140,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				FA3BF8932D47A6E100420546 /* ZMNeonBalls */,
 			);
 			name = ZMNeonBalls;
 			packageProductDependencies = (
@@ -109,6 +187,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3BF8CC2D47BFDA00420546 /* Preview Assets.xcassets in Resources */,
+				FA3BF8CD2D47BFDA00420546 /* Assets.xcassets in Resources */,
+				FA3BF8CF2D47BFDA00420546 /* Montserrat-Bold.ttf in Resources */,
+				FA3BF8D02D47BFDA00420546 /* Montserrat-Medium.ttf in Resources */,
+				FA3BF8D12D47BFDA00420546 /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +202,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */,
+				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -234,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -255,11 +340,14 @@
 				DEVELOPMENT_TEAM = L23B96GPNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZMNeonBalls/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NeonBalls;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -267,9 +355,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpetrenko.ZMNeonBalls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -284,11 +376,14 @@
 				DEVELOPMENT_TEAM = L23B96GPNM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZMNeonBalls/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NeonBalls;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,9 +391,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexpetrenko.ZMNeonBalls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
