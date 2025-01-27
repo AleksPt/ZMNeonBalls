@@ -9,6 +9,13 @@ import SwiftUI
 
 enum K {
     
+    // MARK: - Fonts
+    enum Fonts {
+        static let montserratBold: String = "Montserrat-Bold"
+        static let montserratMedium: String = "Montserrat-Medium"
+        static let montserratSemibold: String = "Montserrat-SemiBold"
+    }
+    
     // MARK: - Text
     enum Texts {
         enum Buttons {

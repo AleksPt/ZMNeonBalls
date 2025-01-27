@@ -18,6 +18,8 @@
 		FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8DD2D47C76500420546 /* Constants.swift */; };
 		FA3BF8EC2D47E0BF00420546 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8EB2D47E0BF00420546 /* Question.swift */; };
 		FA3BF8EF2D47E24E00420546 /* DataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */; };
+		FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */; };
+		FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9172D47FDF000420546 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		FA3BF8DD2D47C76500420546 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA3BF8EB2D47E0BF00420546 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreService.swift; sourceTree = "<group>"; };
+		FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		FA3BF9172D47FDF000420546 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				FA3BF8C52D47BFDA00420546 /* ContentView.swift */,
+				FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */,
+				FA3BF9162D47FDDF00420546 /* CustomViews */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -152,6 +158,14 @@
 				FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FA3BF9162D47FDDF00420546 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA3BF9172D47FDF000420546 /* BackgroundView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +246,11 @@
 			files = (
 				FA3BF8DB2D47C52000420546 /* Ball.swift in Sources */,
 				FA3BF8EC2D47E0BF00420546 /* Question.swift in Sources */,
+				FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */,
 				FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */,
 				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
 				FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */,
+				FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */,
 				FA3BF8EF2D47E24E00420546 /* DataStoreService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
