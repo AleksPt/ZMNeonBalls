@@ -266,31 +266,30 @@ enum K {
             
             enum Question9 {
                 static let question: String = "What kind of sport uses a ball consisting of two stitched parts?"
-                static let answer1: String = ""
-                static let answer2: String = ""
-                static let answer3: String = ""
-                static let answer4: String = ""
+                static let answer1: String = "Tennis"
+                static let answer2: String = "Golf"
+                static let answer3: String = "Baseball"
+                static let answer4: String = "Rugby"
             }
             
             enum Question10 {
                 static let question: String = "Which ball has an ellipsoid shape and lacing for a better grip?"
-                
             }
             
             enum Question11 {
                 static let question: String = "In which country did golf originate?"
-                static let answer1: String = ""
-                static let answer2: String = ""
-                static let answer3: String = ""
-                static let answer4: String = ""
+                static let answer1: String = "USA"
+                static let answer2: String = "England"
+                static let answer3: String = "Scotland"
+                static let answer4: String = "Australia"
             }
             
             enum Question12 {
                 static let question: String = "What is the approximate length of an American football ball?"
-                static let answer1: String = ""
-                static let answer2: String = ""
-                static let answer3: String = ""
-                static let answer4: String = ""
+                static let answer1: String = "20 cm"
+                static let answer2: String = "28 cm"
+                static let answer3: String = "35 cm"
+                static let answer4: String = "40 cm"
             }
             
             enum Question13 {
@@ -299,43 +298,43 @@ enum K {
             
             enum Question14 {
                 static let question: String = "What kind of material used to make table tennis balls?"
-                static let answer1: String = ""
-                static let answer2: String = ""
-                static let answer3: String = ""
-                static let answer4: String = ""
+                static let answer1: String = "Rubber"
+                static let answer2: String = "Plastic"
+                static let answer3: String = "Celluloid"
+                static let answer4: String = "Skin"
             }
             
             enum Question15 {
                 static let question: String = "Where did beach volleyball first appear?"
-                static let answer1: String = ""
-                static let answer2: String = ""
-                static let answer3: String = ""
-                static let answer4: String = ""
+                static let answer1: String = "in England"
+                static let answer2: String = "in Scotland"
+                static let answer3: String = "in California, USA"
+                static let answer4: String = "in China"
             }
             
             enum Question16 {
                 static let question: String = "What is the standard size of a beach volleyball ball?"
-                static let answer1: String = ""
-                static let answer2: String = ""
-                static let answer3: String = ""
-                static let answer4: String = ""
+                static let answer1: String = "65-67 cm"
+                static let answer2: String = "66-68 cm"
+                static let answer3: String = "75-78 cm"
+                static let answer4: String = "70-72 cm"
             }
             
             enum Question17 {
-                static let question17: String = " Which ball is designed for a game in which players try to drive the ball into the holes with the least number of strokes?"
+                static let question: String = " Which ball is designed for a game in which players try to drive the ball into the holes with the least number of strokes?"
             }
             
             enum Question18 {
-                static let question18: String = "Which ball has an oval shape with sharp ends and lacing?"
+                static let question: String = "Which ball has an oval shape with sharp ends and lacing?"
                 
             }
             
             enum Question19 {
                 static let question: String = "In which sport do players hit the ball with a bat and run around the bases?"
-                static let answer1: String = ""
-                static let answer2: String = ""
-                static let answer3: String = ""
-                static let answer4: String = ""
+                static let answer1: String = "Golf"
+                static let answer2: String = "Rugby"
+                static let answer3: String = "Baseball"
+                static let answer4: String = "Volleyball"
             }
             
             enum Question20 {

@@ -5,13 +5,13 @@
 //  Created by Алексей on 27.01.2025.
 //
 
-import Foundation
+import SwiftUI
 
 struct Ball: Identifiable {
     let id = UUID()
     let title: String
     let description: String
-    let image: String
+    let image: Image
     let info: Info
     let fact: String
     let game: Game
