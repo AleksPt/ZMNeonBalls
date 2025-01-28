@@ -99,25 +99,6 @@ struct LibraryView: View {
     }
 }
 
-struct HeaderView: View {
-    let title: String
-    let subtitle: String
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(.custom(K.Fonts.montserratMedium, size: 55))
-                Text(subtitle)
-                    .font(.custom(K.Fonts.montserratMedium, size: 13))
-            }
-            .foregroundStyle(.white)
-            
-            Spacer()
-        }
-    }
-}
-
 #Preview {
     LibraryView()
 }

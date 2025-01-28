@@ -9,6 +9,8 @@ import SwiftUI
 
 enum K {
     
+    static let screenWidth = UIScreen.main.bounds.width
+    
     // MARK: - Fonts
     enum Fonts {
         static let montserratBold: String = "Montserrat-Bold"
@@ -166,7 +168,7 @@ enum K {
                 static let ballStructure: String = "Oval, with pointed ends and lacing for grip"
                 static let characteristic: String = "Ellipsoid shape for throwing and grabbing, durable"
                 static let fact: String = "American football balls were made from inflated pig bladders, hence his nickname \"pigskin\". Used in: American football"
-                static let gameTitle: String = "American football"
+                static let gameTitle: String = "American\nfootball"
                 static let gameDescription: String = "American football is a team sport in which two teams of 11 players each try to propel the ball across the field and bring it into the opponent's scoring zone."
             }
             
@@ -205,7 +207,7 @@ enum K {
                 static let ballStructure: String = "Spherical shape, hollow inside"
                 static let characteristic: String = "Very light, with good bounce"
                 static let fact: String = "Previously, table tennis balls were made of celluloid, which was flammable, but now they are made of plastic"
-                static let gameTitle: String = "Table tennis"
+                static let gameTitle: String = "Table\ntennis"
                 static let gameDescription: String = "Table tennis is a sport in which two players throw a ball over a net on a table using rackets. The goal is to prevent the ball from bouncing on your side of the table more than once"
             }
             
@@ -218,7 +220,7 @@ enum K {
                 static let ballStructure: String = "Spherical shape with 18 panels stitched together"
                 static let characteristic: String = "Lightweight, soft, bright design, suitable for playing in the sand"
                 static let fact: String = "Beach volleyball balls are usually brightly designed to be more visible on the sand and in bright sunlight"
-                static let gameTitle: String = "Beach volleyball"
+                static let gameTitle: String = "Beach\nvolleyball"
                 static let gameDescription: String = "Beach volleyball is a sport in which two teams of 2 players play on the sand, throwing the ball over the net, as in regular volleyball"
             }
         }
