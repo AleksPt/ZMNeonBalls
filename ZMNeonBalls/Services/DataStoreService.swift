@@ -13,11 +13,13 @@ final class DataStoreService {
     private(set) var questions: [Question] = []
     private(set) var balls: [Ball] = []
     private(set) var menu: [Menu] = []
+    private(set) var achievements: [Achievement] = []
     
     private init() {
         questions = getQuestions()
         balls = getBalls()
         menu = getMenu()
+        achievements = getAchievement()
     }
     
     private func getQuestions() -> [Question] {
@@ -776,5 +778,32 @@ final class DataStoreService {
         ]
         
         return menu
+    }
+    
+    private func getAchievement() -> [Achievement] {
+        let achievement: [Achievement] = [
+            Achievement(
+                type: .connoisseur,
+                image: TypeAchievement.connoisseur.image,
+                title: TypeAchievement.connoisseur.title,
+                description: "18/20"
+            ),
+            
+            Achievement(
+                type: .speedrun,
+                image: TypeAchievement.speedrun.image,
+                title: TypeAchievement.speedrun.title,
+                description: "8:30"
+            ),
+            
+            Achievement(
+                type: .combo,
+                image: TypeAchievement.combo.image,
+                title: TypeAchievement.combo.title,
+                description: "6"
+            )
+        ]
+        
+        return achievement
     }
 }
