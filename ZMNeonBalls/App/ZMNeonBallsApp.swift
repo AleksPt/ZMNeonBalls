@@ -11,7 +11,7 @@ import SwiftUI
 struct ZMNeonBallsApp: App {
     var body: some Scene {
         WindowGroup {
-            WebView()
+            ContentView()
         }
     }
 }

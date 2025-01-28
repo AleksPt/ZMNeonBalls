@@ -11,6 +11,11 @@ import WebKit
 struct WebView: View {
     @State private var isLoading = true
     @State private var progress: Double = 0.0
+    let url: String
+    
+    init(url: String) {
+        self.url = url
+    }
     
     var body: some View {
         ZStack {
@@ -18,7 +23,8 @@ struct WebView: View {
             
             WebViewRepresentable(
                 progress: $progress,
-                isLoading: $isLoading
+                isLoading: $isLoading,
+                url: url
             )
                 .opacity(isLoading ? 0 : 1)
                 .animation(.easeInOut, value: isLoading)
@@ -43,6 +49,13 @@ struct WebView: View {
 struct WebViewRepresentable: UIViewRepresentable {
     @Binding var progress: Double
     @Binding var isLoading: Bool
+    let url: String
+    
+    init(progress: Binding<Double>, isLoading: Binding<Bool>, url: String) {
+        self._progress = progress
+        self._isLoading = isLoading
+        self.url = url
+    }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -62,7 +75,7 @@ struct WebViewRepresentable: UIViewRepresentable {
         
         context.coordinator.webView = webView
         
-        if let url = URL(string: "https://www.spotify.com") {
+        if let url = URL(string: url){
             let request = URLRequest(url: url)
             webView.load(request)
         }
@@ -131,5 +144,5 @@ struct WebViewRepresentable: UIViewRepresentable {
 
 
 #Preview {
-    WebView()
+    WebView(url: ApiEndpoint.spotify)
 }
