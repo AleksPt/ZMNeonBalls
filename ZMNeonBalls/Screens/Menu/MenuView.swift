@@ -23,7 +23,7 @@ struct MenuView: View {
             BackgroundView()
             ZStack(alignment: .bottom) {
                 VStack {
-                    HeaderView(
+                    MenuHeaderView(
                         title: K.Texts.Screens.Menu.title,
                         subtitle: K.Texts.Screens.Menu.subtitle,
                         font: K.Fonts.montserratMedium
@@ -119,7 +119,7 @@ struct MenuView: View {
     }
 }
 
-struct HeaderView: View {
+struct MenuHeaderView: View {
     let title: String
     let subtitle: String
     let font: String

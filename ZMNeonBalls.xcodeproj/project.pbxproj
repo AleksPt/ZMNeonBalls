@@ -26,6 +26,8 @@
 		FAC0F4912D49089A00DCCAEF /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F4902D49089A00DCCAEF /* AchievementView.swift */; };
 		FAC0F4932D490DE600DCCAEF /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC0F4922D490DE600DCCAEF /* Montserrat-Regular.ttf */; };
 		FAC0F4952D490FE500DCCAEF /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F4942D490FE500DCCAEF /* Achievement.swift */; };
+		FAC0F4982D4921C100DCCAEF /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F4972D4921C100DCCAEF /* LibraryView.swift */; };
+		FAC0F49B2D4921F500DCCAEF /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F49A2D4921F500DCCAEF /* LibraryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		FAC0F4902D49089A00DCCAEF /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
 		FAC0F4922D490DE600DCCAEF /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		FAC0F4942D490FE500DCCAEF /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		FAC0F4972D4921C100DCCAEF /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		FAC0F49A2D4921F500DCCAEF /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +159,8 @@
 			children = (
 				FA3BF8C52D47BFDA00420546 /* ContentView.swift */,
 				FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */,
-				FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */,
-				FA3BF9192D48B58600420546 /* MenuView.swift */,
+				FAC0F4962D4921A600DCCAEF /* Menu */,
+				FAC0F4992D4921C500DCCAEF /* Library */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -184,6 +188,24 @@
 				FAC0F4902D49089A00DCCAEF /* AchievementView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FAC0F4962D4921A600DCCAEF /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */,
+				FA3BF9192D48B58600420546 /* MenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		FAC0F4992D4921C500DCCAEF /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0F49A2D4921F500DCCAEF /* LibraryViewModel.swift */,
+				FAC0F4972D4921C100DCCAEF /* LibraryView.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC0F4982D4921C100DCCAEF /* LibraryView.swift in Sources */,
 				FA3BF8DB2D47C52000420546 /* Ball.swift in Sources */,
 				FA3BF8EC2D47E0BF00420546 /* Question.swift in Sources */,
 				FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */,
@@ -275,6 +298,7 @@
 				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
 				FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */,
 				FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */,
+				FAC0F49B2D4921F500DCCAEF /* LibraryViewModel.swift in Sources */,
 				FA3BF8EF2D47E24E00420546 /* DataStoreService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
