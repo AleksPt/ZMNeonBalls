@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LoadingView: View {
-    let screen = UIScreen.main.bounds.width
     
     var body: some View {
         ZStack {
@@ -16,7 +15,7 @@ struct LoadingView: View {
             
             Rectangle()
                 .fill(K.Colors.color7E35CD.opacity(0.3))
-                .frame(width: screen / 1.4, height: screen / 1.4)
+                .frame(width: K.screenWidth / 1.4, height: K.screenWidth / 1.4)
                 .clipShape(RoundedRectangle(cornerRadius: 29))
                 .overlay {
                     RoundedRectangle(cornerRadius: 29).stroke(Color.white.opacity(0.2), lineWidth: 1.5)
@@ -31,7 +30,7 @@ struct LoadingView: View {
                 .offset(y: 100)
             
             Rectangle()
-                .frame(width: screen / 1.5, height: screen / 1.5)
+                .frame(width: K.screenWidth / 1.5, height: K.screenWidth / 1.5)
                 .background(.ultraThinMaterial)
                 .opacity(0.8)
                 .clipShape(RoundedRectangle(cornerRadius: 29))
