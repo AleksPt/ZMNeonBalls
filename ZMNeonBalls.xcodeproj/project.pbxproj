@@ -20,6 +20,7 @@
 		FA3BF8EF2D47E24E00420546 /* DataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */; };
 		FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */; };
 		FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9172D47FDF000420546 /* BackgroundView.swift */; };
+		FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9192D48B58600420546 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreService.swift; sourceTree = "<group>"; };
 		FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FA3BF9172D47FDF000420546 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		FA3BF9192D48B58600420546 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				FA3BF8C52D47BFDA00420546 /* ContentView.swift */,
 				FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */,
+				FA3BF9192D48B58600420546 /* MenuView.swift */,
 				FA3BF9162D47FDDF00420546 /* CustomViews */,
 			);
 			path = Screens;
@@ -248,6 +251,7 @@
 				FA3BF8EC2D47E0BF00420546 /* Question.swift in Sources */,
 				FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */,
 				FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */,
+				FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */,
 				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
 				FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */,
 				FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */,
