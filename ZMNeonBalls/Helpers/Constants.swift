@@ -69,8 +69,8 @@ enum K {
                     static let size: String = "Size"
                     static let materialsTitle: String = "Materials"
                     static let materialsDescription: String = "find out what the ball is made of"
-                    static let ballStructure: String = "Ball\nstructure"
-                    static let characteristic: String = "Characteristics\nfeatures"
+                    static let ballStructure: String = "Ball structure"
+                    static let characteristic: String = "Characteristics features"
                 }
                 
                 enum Fact {

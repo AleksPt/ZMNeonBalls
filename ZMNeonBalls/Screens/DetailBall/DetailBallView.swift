@@ -16,8 +16,8 @@ struct DetailBallView: View {
     @State private var factIsChecked: Bool = false
     @State private var gameIsChecked: Bool = false
     
-    @State private var infoSelectedFirstView: Bool = false
-    @State private var selectedCapsuleButton = 2 {
+    @State private var infoSelectedFirstView: Bool = true
+    @State private var selectedCapsuleButton = 0 {
         didSet {
             checkedSelectedTab(index: selectedCapsuleButton)
         }
@@ -63,7 +63,11 @@ struct DetailBallView: View {
                 
                 switch selectedCapsuleButton {
                 case 0:
-                    InfoViewDetailBall(infoSelectedFirstView: $infoSelectedFirstView)
+                    InfoViewDetailBall(
+                        infoSelectedFirstView: $infoSelectedFirstView,
+                        screenWidth: K.screenWidth,
+                        ball: viewModel.balls[indexBall]
+                    )
                         .frame(height: K.screenWidth / 2)
                         .padding(.horizontal)
                 case 1:
@@ -173,17 +177,157 @@ struct TabDetailBallView: View {
 }
 
 struct InfoViewDetailBall: View {
+    enum DetailInfoState {
+        case county, size, material, structure, characteristic
+    }
+    
     @Binding var infoSelectedFirstView: Bool
+    @State private var detailInfoState: DetailInfoState? = nil
+    let screenWidth: CGFloat
+    let ball: Ball
     
     var body: some View {
-        if infoSelectedFirstView {
-            HStack(spacing: 15) {
-                VStack(spacing: 15) {
+        
+        switch detailInfoState {
+        case .county:
+            infoDetailView(
+                title: K.Texts.Screens.BallDetailCard.Info.countryDetail,
+                text: ball.info.country
+            )
+        case .size:
+            infoDetailView(
+                title: K.Texts.Screens.BallDetailCard.Info.size,
+                text: ball.info.size
+            )
+        case .material:
+            infoDetailView(
+                title: K.Texts.Screens.BallDetailCard.Info.materialsTitle,
+                text: ball.info.material
+            )
+        case .structure:
+            infoDetailView(
+                title: K.Texts.Screens.BallDetailCard.Info.ballStructure,
+                text: ball.info.ballStructure
+            )
+        case .characteristic:
+            infoDetailView(
+                title: K.Texts.Screens.BallDetailCard.Info.characteristic,
+                text: ball.info.characteristic
+            )
+        case nil:
+            if infoSelectedFirstView {
+                HStack(spacing: 15) {
+                    VStack(spacing: 15) {
+                        Rectangle()
+                            .foregroundStyle(K.Colors.color423AB9)
+                            .clipShape(.rect(cornerRadius: 20))
+                            .overlay(
+                                Text(K.Texts.Screens.BallDetailCard.Info.country)
+                                    .font(.custom(K.Fonts.montserratMedium, size: 20))
+                                    .foregroundStyle(.white)
+                                    .padding(),
+                                alignment: .topLeading
+                            )
+                            .overlay(
+                                CircleButtonView(
+                                    width: 30,
+                                    scale: 0.20) {
+                                        withAnimation {
+                                            detailInfoState = .county
+                                        }
+                                    }
+                                    .foregroundStyle(.white)
+                                    .padding(),
+                                alignment: .bottomTrailing
+                            )
+                            .onTapGesture {
+                                withAnimation {
+                                    detailInfoState = .county
+                                }
+                            }
+                        
+                        Rectangle()
+                            .foregroundStyle(.white)
+                            .overlay {
+                                K.Images.DetailBall.size
+                                    .resizable()
+                                    .scaledToFill()
+                            }
+                            .overlay(
+                                Text(K.Texts.Screens.BallDetailCard.Info.size)
+                                    .font(.custom(K.Fonts.montserratMedium, size: 20))
+                                    .foregroundStyle(.white)
+                                    .padding(),
+                                alignment: .topLeading
+                            )
+                            .overlay(
+                                CircleButtonView(
+                                    width: 30,
+                                    scale: 0.20) {
+                                        withAnimation {
+                                            detailInfoState = .size
+                                        }
+                                    }
+                                    .foregroundStyle(.white)
+                                    .padding(),
+                                alignment: .bottomTrailing
+                            )
+                            .clipShape(.rect(cornerRadius: 20))
+                            .onTapGesture {
+                                withAnimation {
+                                    detailInfoState = .size
+                                }
+                            }
+                    }
+                    
+                    VStack(spacing: 0) {
+                        ZStack {
+                            Rectangle()
+                                .foregroundStyle(.white)
+                                .cornerRadius(20, corners: [.topLeft, .topRight])
+                            VStack(alignment: .leading) {
+                                Text(K.Texts.Screens.BallDetailCard.Info.materialsTitle)
+                                    .font(.custom(K.Fonts.montserratMedium, size: 20))
+                                Text(K.Texts.Screens.BallDetailCard.Info.materialsDescription)
+                                    .font(.custom(K.Fonts.montserratMedium, size: 15))
+                                    .foregroundStyle(.gray)
+                            }
+                            .padding()
+                        }
+                        Rectangle()
+                            .foregroundStyle(.white)
+                            .overlay {
+                                K.Images.DetailBall.material
+                                    .resizable()
+                                    .scaledToFill()
+                            }
+                            .overlay(
+                                CircleButtonView(
+                                    width: 30,
+                                    scale: 0.20) {
+                                        withAnimation {
+                                            detailInfoState = .material
+                                        }
+                                    }
+                                    .foregroundStyle(.white)
+                                    .padding(),
+                                alignment: .bottomTrailing
+                            )
+                            .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
+                            .onTapGesture {
+                                withAnimation {
+                                    detailInfoState = .material
+                                }
+                            }
+                    }
+                }
+            } else {
+                HStack {
                     Rectangle()
                         .foregroundStyle(K.Colors.color423AB9)
                         .clipShape(.rect(cornerRadius: 20))
                         .overlay(
-                            Text(K.Texts.Screens.BallDetailCard.Info.country)
+                            Text(K.Texts.Screens.BallDetailCard.Info.ballStructure)
                                 .font(.custom(K.Fonts.montserratMedium, size: 20))
                                 .foregroundStyle(.white)
                                 .padding(),
@@ -193,22 +337,31 @@ struct InfoViewDetailBall: View {
                             CircleButtonView(
                                 width: 30,
                                 scale: 0.20) {
-                                    
+                                    withAnimation {
+                                        detailInfoState = .structure
+                                    }
                                 }
                                 .foregroundStyle(.white)
                                 .padding(),
                             alignment: .bottomTrailing
                         )
+                        .onTapGesture {
+                            withAnimation {
+                                detailInfoState = .structure
+                            }
+                        }
                     
                     Rectangle()
                         .foregroundStyle(.white)
                         .overlay {
-                            K.Images.DetailBall.size
+                            K.Images.DetailBall.characteristic
                                 .resizable()
                                 .scaledToFill()
                         }
                         .overlay(
-                            Text(K.Texts.Screens.BallDetailCard.Info.size)
+                            Text(K.Texts.Screens.BallDetailCard.Info.characteristic)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(2)
                                 .font(.custom(K.Fonts.montserratMedium, size: 20))
                                 .foregroundStyle(.white)
                                 .padding(),
@@ -218,89 +371,66 @@ struct InfoViewDetailBall: View {
                             CircleButtonView(
                                 width: 30,
                                 scale: 0.20) {
-                                    
+                                    withAnimation {
+                                        detailInfoState = .characteristic
+                                    }
                                 }
                                 .foregroundStyle(.white)
                                 .padding(),
                             alignment: .bottomTrailing
                         )
                         .clipShape(.rect(cornerRadius: 20))
-                }
-                
-                VStack(spacing: 0) {
-                    ZStack {
-                        Rectangle()
-                            .foregroundStyle(.white)
-                            .cornerRadius(20, corners: [.topLeft, .topRight])
-                        VStack(alignment: .leading) {
-                            Text(K.Texts.Screens.BallDetailCard.Info.materialsTitle)
-                                .font(.custom(K.Fonts.montserratMedium, size: 20))
-                            Text(K.Texts.Screens.BallDetailCard.Info.materialsDescription)
-                                .font(.custom(K.Fonts.montserratMedium, size: 15))
-                                .foregroundStyle(.gray)
+                        .onTapGesture {
+                            withAnimation {
+                                detailInfoState = .characteristic
+                            }
                         }
-                        .padding()
-                    }
-                    Rectangle()
-                        .foregroundStyle(.white)
-                        .overlay {
-                            K.Images.DetailBall.material
-                                .resizable()
-                                .scaledToFill()
-                        }
-                        .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
                 }
             }
-        } else {
+        }
+    }
+    
+    private func infoDetailView(title: String, text: String) -> some View {
+        ZStack {
+            Rectangle()
+                .frame(height: screenWidth / 2)
+                .background(.ultraThinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 15).stroke(Color.white.opacity(0.2), lineWidth: 1.5)
+                }
             HStack {
-                Rectangle()
-                    .foregroundStyle(K.Colors.color423AB9)
-                    .clipShape(.rect(cornerRadius: 20))
-                    .overlay(
-                        Text(K.Texts.Screens.BallDetailCard.Info.ballStructure)
-                            .font(.custom(K.Fonts.montserratMedium, size: 20))
-                            .foregroundStyle(.white)
-                            .padding(),
-                        alignment: .topLeading
-                    )
-                    .overlay(
-                        CircleButtonView(
-                            width: 30,
-                            scale: 0.20) {
-                                
+                VStack(alignment: .leading, spacing: 15) {
+                    Text(title)
+                        .font(.custom(K.Fonts.montserratSemibold, size: 17.5))
+                    Text(text)
+                        .font(.custom(K.Fonts.montserratMedium, size: 15))
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        Button {
+                            withAnimation {
+                                detailInfoState = nil
                             }
-                            .foregroundStyle(.white)
-                            .padding(),
-                        alignment: .bottomTrailing
-                    )
-                Rectangle()
-                    .foregroundStyle(.white)
-                    .overlay {
-                        K.Images.DetailBall.characteristic
-                            .resizable()
-                            .scaledToFill()
+                        } label: {
+                            ZStack {
+                                Capsule()
+                                    .foregroundStyle(.white)
+                                    .frame(width: 75, height: 25)
+                                Text(K.Texts.Buttons.back.lowercased())
+                                    .foregroundStyle(.black)
+                            }
+                        }
+                        Spacer()
                     }
-                    .overlay(
-                        Text(K.Texts.Screens.BallDetailCard.Info.characteristic)
-                            .minimumScaleFactor(0.5)
-                            .lineLimit(2)
-                            .font(.custom(K.Fonts.montserratMedium, size: 20))
-                            .foregroundStyle(.white)
-                            .padding(),
-                        alignment: .topLeading
-                    )
-                    .overlay(
-                        CircleButtonView(
-                            width: 30,
-                            scale: 0.20) {
-                                
-                            }
-                            .foregroundStyle(.white)
-                            .padding(),
-                        alignment: .bottomTrailing
-                    )
-                    .clipShape(.rect(cornerRadius: 20))
+                }
+                .foregroundStyle(.white)
+                
+                Spacer()
             }
+            .padding()
         }
     }
 }
