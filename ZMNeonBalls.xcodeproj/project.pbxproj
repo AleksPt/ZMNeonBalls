@@ -21,9 +21,6 @@
 		FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */; };
 		FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9172D47FDF000420546 /* BackgroundView.swift */; };
 		FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9192D48B58600420546 /* MenuView.swift */; };
-		FA3BF91E2D48C2F000420546 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF91D2D48C2F000420546 /* WebView.swift */; };
-		FA3BF9202D48C36700420546 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF91F2D48C36700420546 /* LoaderView.swift */; };
-		FA3BF9232D48DBA400420546 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9222D48DBA400420546 /* ApiEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +40,6 @@
 		FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FA3BF9172D47FDF000420546 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		FA3BF9192D48B58600420546 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		FA3BF91D2D48C2F000420546 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		FA3BF91F2D48C36700420546 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
-		FA3BF9222D48DBA400420546 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +85,6 @@
 				FA3BF8D92D47C02800420546 /* Screens */,
 				FA3BF9162D47FDDF00420546 /* CustomViews */,
 				FA3BF8ED2D47E23D00420546 /* Services */,
-				FA3BF9212D48DB8B00420546 /* API */,
 				FA3BF8DC2D47C74800420546 /* Helpers */,
 				FA3BF8D72D47C00D00420546 /* Support */,
 				FA3BF8D52D47BFF400420546 /* Resources */,
@@ -150,7 +143,6 @@
 				FA3BF8C52D47BFDA00420546 /* ContentView.swift */,
 				FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */,
 				FA3BF9192D48B58600420546 /* MenuView.swift */,
-				FA3BF91D2D48C2F000420546 /* WebView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -175,17 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				FA3BF9172D47FDF000420546 /* BackgroundView.swift */,
-				FA3BF91F2D48C36700420546 /* LoaderView.swift */,
 			);
 			path = CustomViews;
-			sourceTree = "<group>";
-		};
-		FA3BF9212D48DB8B00420546 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				FA3BF9222D48DBA400420546 /* ApiEndpoint.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,11 +254,8 @@
 				FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */,
 				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
 				FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */,
-				FA3BF91E2D48C2F000420546 /* WebView.swift in Sources */,
-				FA3BF9202D48C36700420546 /* LoaderView.swift in Sources */,
 				FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */,
 				FA3BF8EF2D47E24E00420546 /* DataStoreService.swift in Sources */,
-				FA3BF9232D48DBA400420546 /* ApiEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
