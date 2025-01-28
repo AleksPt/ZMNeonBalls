@@ -17,7 +17,7 @@ struct DetailBallView: View {
     @State private var gameIsChecked: Bool = false
     
     @State private var infoSelectedFirstView: Bool = false
-    @State private var selectedCapsuleButton = 1 {
+    @State private var selectedCapsuleButton = 2 {
         didSet {
             checkedSelectedTab(index: selectedCapsuleButton)
         }
@@ -72,7 +72,10 @@ struct DetailBallView: View {
                         .padding(.horizontal)
                         .padding(.bottom, 38)
                 default:
-                    EmptyView()
+                    GameViewDetailBall(ball: $viewModel.balls[indexBall])
+                        .frame(height: K.screenWidth / 2 + 40)
+                        .padding(.horizontal)
+                        .padding(.bottom, 38)
                 }
                 
                 if selectedCapsuleButton == 0 {
@@ -332,8 +335,58 @@ struct FactViewDetailBall: View {
 }
 
 struct GameViewDetailBall: View {
+    @Binding var ball: Ball
+    
     var body: some View {
-        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
+        HStack(spacing: 15) {
+            Rectangle()
+                .foregroundStyle(.white)
+                .overlay {
+                    K.Images.DetailBall.gameCard
+                        .resizable()
+                        .scaledToFill()
+                }
+                .overlay(
+                    VStack(alignment: .leading, spacing: -20) {
+                        Text(K.Texts.Screens.BallDetailCard.Game.game)
+                            .font(.custom(K.Fonts.montserratRegular, size: 10))
+                            .foregroundStyle(.white)
+                            .padding()
+                        Text(ball.game.title)
+                            .font(.custom(K.Fonts.montserratMedium, size: 15))
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(2)
+                            .foregroundStyle(.white)
+                            .padding()
+                    },
+                    alignment: .topLeading
+                )
+                .clipShape(.rect(cornerRadius: 20))
+                .frame(width: K.screenWidth / 3.25)
+            
+            Rectangle()
+                .foregroundStyle(.white)
+                .overlay {
+                    K.Images.DetailBall.gameAbout
+                        .resizable()
+                        .scaledToFill()
+                }
+                .overlay(
+                    VStack(alignment: .leading, spacing: -20) {
+                        Text(K.Texts.Screens.BallDetailCard.Game.aboutGame)
+                            .font(.custom(K.Fonts.montserratRegular, size: 10))
+                            .foregroundStyle(.white)
+                            .padding()
+                        Text(ball.game.description)
+                            .font(.custom(K.Fonts.montserratMedium, size: 15))
+                            .minimumScaleFactor(0.5)
+                            .foregroundStyle(.white)
+                            .padding()
+                    },
+                    alignment: .topLeading
+                )
+                .clipShape(.rect(cornerRadius: 20))
+        }
     }
 }
 
