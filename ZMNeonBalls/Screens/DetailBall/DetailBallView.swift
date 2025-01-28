@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailBallView: View {
+    
     @ObservedObject var viewModel: LibraryViewModel
     @State var indexBall: Int = 0
     
@@ -16,7 +17,7 @@ struct DetailBallView: View {
     @State private var gameIsChecked: Bool = false
     
     @State private var infoSelectedFirstView: Bool = false
-    @State private var selectedCapsuleButton = 0 {
+    @State private var selectedCapsuleButton = 1 {
         didSet {
             checkedSelectedTab(index: selectedCapsuleButton)
         }
@@ -60,7 +61,19 @@ struct DetailBallView: View {
                 .padding(.horizontal)
                 .padding(.bottom)
                 
-                InfoViewDetailBall(infoSelectedFirstView: $infoSelectedFirstView)
+                switch selectedCapsuleButton {
+                case 0:
+                    InfoViewDetailBall(infoSelectedFirstView: $infoSelectedFirstView)
+                        .frame(height: K.screenWidth / 2)
+                        .padding(.horizontal)
+                case 1:
+                    FactViewDetailBall(ball: $viewModel.balls[indexBall])
+                        .frame(height: K.screenWidth / 2 + 40)
+                        .padding(.horizontal)
+                        .padding(.bottom, 38)
+                default:
+                    EmptyView()
+                }
                 
                 if selectedCapsuleButton == 0 {
                     SwitchButtonView(
@@ -235,8 +248,6 @@ struct InfoViewDetailBall: View {
                         .cornerRadius(20, corners: [.bottomLeft, .bottomRight])
                 }
             }
-            .frame(height: K.screenWidth / 2)
-            .padding(.horizontal)
         } else {
             HStack {
                 Rectangle()
@@ -287,9 +298,42 @@ struct InfoViewDetailBall: View {
                     )
                     .clipShape(.rect(cornerRadius: 20))
             }
-            .frame(height: K.screenWidth / 2)
-            .padding(.horizontal)
         }
+    }
+}
+
+struct FactViewDetailBall: View {
+    @Binding var ball: Ball
+    
+    var body: some View {
+        Rectangle()
+            .foregroundStyle(.white)
+            .overlay {
+                K.Images.DetailBall.fact
+                    .resizable()
+                    .scaledToFill()
+            }
+            .overlay(
+                VStack(alignment: .leading, spacing: -20) {
+                    Text(K.Texts.Screens.BallDetailCard.Fact.factDetailTitle)
+                        .font(.custom(K.Fonts.montserratSemibold, size: 20))
+                        .foregroundStyle(.white)
+                        .padding()
+                    
+                    Text(ball.fact)
+                        .font(.custom(K.Fonts.montserratMedium, size: 17.5))
+                        .foregroundStyle(.white)
+                        .padding()
+                },
+                alignment: .topLeading
+            )
+            .clipShape(.rect(cornerRadius: 20))
+    }
+}
+
+struct GameViewDetailBall: View {
+    var body: some View {
+        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Hello, world!@*/Text("Hello, world!")/*@END_MENU_TOKEN@*/
     }
 }
 
