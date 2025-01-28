@@ -33,6 +33,7 @@ struct LoadingView: View {
             Rectangle()
                 .frame(width: screen / 1.5, height: screen / 1.5)
                 .background(.ultraThinMaterial)
+                .opacity(0.8)
                 .clipShape(RoundedRectangle(cornerRadius: 29))
                 .overlay {
                     RoundedRectangle(cornerRadius: 29).stroke(Color.white.opacity(0.2), lineWidth: 1.5)

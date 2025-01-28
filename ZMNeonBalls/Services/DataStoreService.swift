@@ -12,10 +12,12 @@ final class DataStoreService {
     
     private(set) var questions: [Question] = []
     private(set) var balls: [Ball] = []
+    private(set) var menu: [Menu] = []
     
     private init() {
         questions = getQuestions()
         balls = getBalls()
+        menu = getMenu()
     }
     
     private func getQuestions() -> [Question] {
@@ -738,5 +740,41 @@ final class DataStoreService {
         ]
         
         return balls
+    }
+    
+    private func getMenu() -> [Menu] {
+        let menu = [
+            Menu(
+                titleCapsuleButton: K.Texts.Screens.Menu.read,
+                card: Card(
+                    title: K.Texts.Screens.Menu.infoTitle,
+                    description: K.Texts.Screens.Menu.infoDescription,
+                    imageBacground: K.Images.Menu.info,
+                    imageForeground: K.Images.Balls.baseBall
+                )
+            ),
+            
+            Menu(
+                titleCapsuleButton: K.Texts.Screens.Menu.play,
+                card: Card(
+                    title: K.Texts.Screens.Menu.testTitle,
+                    description: K.Texts.Screens.Menu.testDescription,
+                    imageBacground: K.Images.Menu.test,
+                    imageForeground: K.Images.Balls.golfBall
+                )
+            ),
+            
+            Menu(
+                titleCapsuleButton: K.Texts.Screens.Menu.record,
+                card: Card(
+                    title: K.Texts.Screens.Menu.resultsTitle,
+                    description: nil,
+                    imageBacground: K.Images.Menu.results,
+                    imageForeground: K.Images.Balls.tableTennisBall
+                )
+            ),
+        ]
+        
+        return menu
     }
 }

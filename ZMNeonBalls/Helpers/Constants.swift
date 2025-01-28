@@ -368,6 +368,7 @@ enum K {
         static let background = Image("appBackground")
         static let gameOver = Image("gameOver")
         static let star = Image("gameOverStar")
+        static let arrow = Image("appArrow")
         
         enum Menu {
             static let info = Image("menuInfoBackgroundCard")
