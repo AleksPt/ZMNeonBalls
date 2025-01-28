@@ -14,6 +14,7 @@ enum K {
         static let montserratBold: String = "Montserrat-Bold"
         static let montserratMedium: String = "Montserrat-Medium"
         static let montserratSemibold: String = "Montserrat-SemiBold"
+        static let montserratRegular: String = "Montserrat-Regular"
     }
     
     // MARK: - Text
@@ -368,6 +369,8 @@ enum K {
         static let background = Image("appBackground")
         static let gameOver = Image("gameOver")
         static let star = Image("gameOverStar")
+        static let arrow = Image("appArrow")
+        static let arrowLeft = Image("appArrowLeft")
         
         enum Menu {
             static let info = Image("menuInfoBackgroundCard")
