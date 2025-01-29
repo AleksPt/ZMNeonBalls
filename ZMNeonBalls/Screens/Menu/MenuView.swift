@@ -19,80 +19,81 @@ struct MenuView: View {
     }
     
     var body: some View {
-        ZStack {
-            BackgroundView()
-            ZStack(alignment: .bottom) {
-                VStack {
-                    MenuHeaderView(
-                        title: K.Texts.Screens.Menu.title,
-                        subtitle: K.Texts.Screens.Menu.subtitle,
-                        font: K.Fonts.montserratMedium
-                    )
-                    .padding(.horizontal)
-                    .padding(.bottom, 8)
-                    
-                    BallsScrollView(balls: DataStoreService.shared.balls)
-                        .padding(.bottom)
-                    
-                    HStack {
-                        CapsuleButtonView(
-                            isChecked: $infoIsChecked,
-                            text: K.Texts.Screens.Menu.infoTitle
-                        ) {
-                            selectedTab = 0
+            ZStack {
+                BackgroundView()
+                ZStack(alignment: .bottom) {
+                    VStack {
+                        MenuHeaderView(
+                            title: K.Texts.Screens.Menu.title,
+                            subtitle: K.Texts.Screens.Menu.subtitle,
+                            font: K.Fonts.montserratMedium
+                        )
+                        .padding(.horizontal)
+                        .padding(.bottom, 8)
+                        
+                        BallsScrollView(balls: DataStoreService.shared.balls)
+                            .padding(.bottom)
+                        
+                        HStack {
+                            CapsuleButtonView(
+                                isChecked: $infoIsChecked,
+                                text: K.Texts.Screens.Menu.infoTitle
+                            ) {
+                                selectedTab = 0
+                            }
+                            CapsuleButtonView(
+                                isChecked: $playIsChecked,
+                                text: K.Texts.Screens.Menu.play
+                            ) {
+                                selectedTab = 1
+                            }
+                            CapsuleButtonView(
+                                isChecked: $recordIsChecked,
+                                text: K.Texts.Screens.Menu.record
+                            ) {
+                                selectedTab = 2
+                            }
                         }
-                        CapsuleButtonView(
-                            isChecked: $playIsChecked,
-                            text: K.Texts.Screens.Menu.play
-                        ) {
-                            selectedTab = 1
-                        }
-                        CapsuleButtonView(
-                            isChecked: $recordIsChecked,
-                            text: K.Texts.Screens.Menu.record
-                        ) {
-                            selectedTab = 2
-                        }
+                        .frame(height: 30)
+                        .padding(.horizontal)
+                        
+                        CustomTabView(selectedTab: $selectedTab, menuViewModel: menuViewModel)
+                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                            .animation(.easeInOut, value: selectedTab)
+                            .onChange(of: selectedTab, perform: { newValue in
+                                checkedSelectedTab(index: newValue)
+                            })
                     }
-                    .frame(height: 30)
-                    .padding(.horizontal)
                     
-                    CustomTabView(selectedTab: $selectedTab, menuViewModel: menuViewModel)
-                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-                        .animation(.easeInOut, value: selectedTab)
-                        .onChange(of: selectedTab, perform: { newValue in
-                            checkedSelectedTab(index: newValue)
-                        })
-                }
-                
-                HStack(spacing: 60) {
-                    SelectTabButton(direction: .left) {
-                        if selectedTab > 0 {
-                            selectedTab -= 1
-                        } else {
-                            selectedTab = 2
+                    HStack(spacing: 60) {
+                        SelectTabButton(direction: .left) {
+                            if selectedTab > 0 {
+                                selectedTab -= 1
+                            } else {
+                                selectedTab = 2
+                            }
+                            
+                            checkedSelectedTab(index: selectedTab)
                         }
                         
-                        checkedSelectedTab(index: selectedTab)
-                    }
-                    
-                    SelectTabButton(direction: .right) {
-                        if selectedTab < 2 {
-                            selectedTab += 1
-                        } else {
-                            selectedTab = 0
+                        SelectTabButton(direction: .right) {
+                            if selectedTab < 2 {
+                                selectedTab += 1
+                            } else {
+                                selectedTab = 0
+                            }
+                            
+                            checkedSelectedTab(index: selectedTab)
                         }
-                        
-                        checkedSelectedTab(index: selectedTab)
                     }
+                    .padding(.top, 50)
+                    .padding(.bottom)
                 }
-                .padding(.top, 50)
-                .padding(.bottom)
+                .padding(.vertical)
+                .padding(.top, 25)
             }
-            .padding(.vertical)
-            .padding(.top, 25)
+            .navigationBarBackButtonHidden(true)
         }
-    }
     
     private func checkedSelectedTab(index: Int) {
         switch index {
@@ -209,12 +210,36 @@ struct CustomTabView: View {
                             }
                             
                             if selectedTab != 2 {
-                                CircleButtonView(
-                                    width: 50,
-                                    scale: 0.35) {
-                                        
+                                switch selectedTab {
+                                case 0:
+                                    NavigationLink {
+                                        LibraryView()
+                                    } label: {
+                                        ZStack {
+                                            Circle()
+                                                .frame(width: 50)
+                                                .overlay {
+                                                    K.Images.arrow
+                                                        .scaleEffect(0.35)
+                                                }
+                                        }
+                                        .padding(.leading)
                                     }
-                                
+                                default:
+                                    NavigationLink {
+                                        QuizView()
+                                    } label: {
+                                        ZStack {
+                                            Circle()
+                                                .frame(width: 50)
+                                                .overlay {
+                                                    K.Images.arrow
+                                                        .scaleEffect(0.35)
+                                                }
+                                        }
+                                        .padding(.leading)
+                                    }
+                                }
                             } else {
                                 VStack {
                                     ForEach(menuViewModel.achievement) { achievement in

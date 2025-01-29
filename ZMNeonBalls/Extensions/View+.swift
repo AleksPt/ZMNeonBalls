@@ -7,6 +7,12 @@
 import SwiftUI
 
 extension View {
+    func customNavBar(action: @escaping () -> ()) -> some View {
+        self.modifier(CustomNavBackButton(action: action))
+    }
+}
+
+extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
