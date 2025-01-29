@@ -82,5 +82,7 @@ struct LoadingView: View {
 
 #Preview {
     LoadingView()
+        .environmentObject(LibraryViewModel())
+        .environmentObject(MenuViewModel())
 }
 
