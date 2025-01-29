@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MenuView: View {
-    @StateObject private var menuViewModel = MenuViewModel()
+    @EnvironmentObject private var menuViewModel: MenuViewModel
+    @EnvironmentObject private var libraryViewModel: LibraryViewModel
     @State private var infoIsChecked: Bool = true
     @State private var playIsChecked: Bool = false
     @State private var recordIsChecked: Bool = false
@@ -31,7 +32,7 @@ struct MenuView: View {
                         .padding(.horizontal)
                         .padding(.bottom, 8)
                         
-                        BallsScrollView(balls: DataStoreService.shared.balls)
+                        BallsScrollView(viewModel: libraryViewModel)
                             .padding(.bottom)
                         
                         HStack {
@@ -142,30 +143,38 @@ struct MenuHeaderView: View {
 }
 
 struct BallsScrollView: View {
-    let balls: [Ball]
+    let viewModel: LibraryViewModel
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
-                ForEach(balls) { ball in
-                    Rectangle()
-                        .frame(width: 125, height: 125)
-                        .background(.ultraThinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 15).stroke(Color.white.opacity(0.2), lineWidth: 1.5)
-                        }
-                        .overlay(content: {
-                            ball.image
-                                .resizable()
-                                .scaledToFit()
-                                .scaleEffect(0.9)
-                                .blur(radius: 10)
-                            ball.image
-                                .resizable()
-                                .scaledToFit()
-                                .scaleEffect(0.8)
-                        })
+                ForEach(viewModel.balls.indices, id: \.self) { index in
+                    
+                    let ball = viewModel.balls[index]
+                    
+                    NavigationLink {
+                        DetailBallView(viewModel: viewModel, indexBall: index)
+                    } label: {
+                        Rectangle()
+                            .frame(width: 125, height: 125)
+                            .background(.ultraThinMaterial)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 15).stroke(Color.white.opacity(0.2), lineWidth: 1.5)
+                            }
+                            .overlay(content: {
+                                ball.image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .scaleEffect(0.9)
+                                    .blur(radius: 10)
+                                ball.image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .scaleEffect(0.8)
+                            })
+                    }
+                    .buttonStyle(.plain)
                 }
             }.padding(.leading)
         }
@@ -266,5 +275,9 @@ struct CustomTabView: View {
 }
 
 #Preview {
-    MenuView()
+    NavigationView {
+        MenuView()
+            .environmentObject(LibraryViewModel())
+            .environmentObject(MenuViewModel())
+    }
 }
