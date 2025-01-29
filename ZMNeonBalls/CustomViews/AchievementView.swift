@@ -19,12 +19,14 @@ struct AchievementView: View {
         ZStack {
             Rectangle()
                 .frame(width: width, height: height)
-                .background(.ultraThinMaterial)
                 .foregroundStyle(Color.clear)
                 .opacity(0.85)
                 .clipShape(RoundedRectangle(cornerRadius: radius))
                 .overlay {
                     RoundedRectangle(cornerRadius: radius).stroke(Color.white, lineWidth: 0.5)
+                    
+                    BlurView(style: .systemMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: radius))
                 }
                 .overlay {
                     VStack {

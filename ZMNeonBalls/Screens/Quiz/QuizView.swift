@@ -194,6 +194,26 @@ struct QuestionShape: View {
                         )
                     }
                 )
+                .overlay(
+                    BlurView(style: .systemMaterial)
+                        .clipShape(
+                            Path { path in
+                                path.addRoundedRect(
+                                    in: CGRect(x: 0, y: 0, width: width, height: height - 50),
+                                    cornerSize: CGSize(width: 20, height: 20)
+                                )
+                                
+                                path.move(to: CGPoint(x: width/2, y: height - 50))
+                                path.addArc(
+                                    center: CGPoint(x: width/2, y: height - 50),
+                                    radius: 40,
+                                    startAngle: .degrees(0),
+                                    endAngle: .degrees(180),
+                                    clockwise: true
+                                )
+                            }
+                        )
+                )
                 .rotationEffect(.degrees(180))
             
             VStack {

@@ -66,7 +66,6 @@ struct GameOverView: View {
                 }
 
                 AchievementsGameOverView(quizViewModel: quizViewModel)
-                    .padding(.bottom)
                 
                 Button {
                     dismiss()
@@ -117,6 +116,7 @@ fileprivate struct AchievementsGameOverView: View {
                     height: height
                 )
             }
+            .padding(.vertical)
         }
     }
 }

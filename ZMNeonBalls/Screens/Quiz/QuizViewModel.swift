@@ -45,8 +45,8 @@ final class QuizViewModel: ObservableObject {
     
     func startQuiz() {
         startTimer()
-        startTimerAllGame()
         countCorrectAnswers = 0
+        allTime = 0
     }
     
     func checkIsCorrectAnswer(answerIndex: Int) {
@@ -88,18 +88,11 @@ final class QuizViewModel: ObservableObject {
             
             if timeProgress > 0 {
                 timeProgress -= 1
+                allTime += 1
+                print(allTime)
             } else {
                 finishQuiz()
             }
-        }
-    }
-    
-    func startTimerAllGame() {
-        allTime = 0
-        timerAllGame = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            
-            allTime += 1
         }
     }
     

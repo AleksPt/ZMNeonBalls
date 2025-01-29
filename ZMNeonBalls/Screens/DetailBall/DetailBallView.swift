@@ -295,6 +295,8 @@ struct InfoViewDetailBall: View {
                                 Text(K.Texts.Screens.BallDetailCard.Info.materialsTitle)
                                     .font(.custom(K.Fonts.montserratMedium, size: 20))
                                 Text(K.Texts.Screens.BallDetailCard.Info.materialsDescription)
+                                    .minimumScaleFactor(0.5)
+                                    .lineLimit(2)
                                     .font(.custom(K.Fonts.montserratMedium, size: 15))
                                     .foregroundStyle(.gray)
                             }
