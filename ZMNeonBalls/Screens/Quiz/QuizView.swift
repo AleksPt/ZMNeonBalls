@@ -301,6 +301,9 @@ struct AnswersView: View {
                                         Color.white,
                                         lineWidth: 1
                                     )
+                                    Rectangle()
+                                        .clipShape(.rect(cornerRadius: 15))
+                                        .foregroundStyle(K.Colors.color7E35CD)
                             }
                             
                             if let image = question.image {

@@ -10,6 +10,8 @@ import SwiftUI
 struct GameOverView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var quizViewModel: QuizViewModel
+    private let storageService: StorageService = StorageService.shared
+    @State private var countNewRecords: Int = 0
     
     var body: some View {
         ZStack {
@@ -53,13 +55,18 @@ struct GameOverView: View {
                     .foregroundStyle(.white)
                     .font(.custom(K.Fonts.montserratSemibold, size: 30))
                 
-                Text(K.Texts.Screens.Quiz.newRecords)
-                    .font(.custom(K.Fonts.montserratSemibold, size: 20))
-                    .padding(.horizontal)
-                    .padding(.vertical, 10)
-                    .foregroundStyle(.white)
-                    .background(Capsule())
-                    .foregroundStyle(K.Colors.colorDD39D5)
+                if quizViewModel.countNewRecords > 0 {
+                    Text(quizViewModel.countNewRecords.description + " " + K.Texts.Screens.Quiz.newRecords)
+                        .font(.custom(K.Fonts.montserratSemibold, size: 20))
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
+                        .foregroundStyle(.white)
+                        .background(Capsule())
+                        .foregroundStyle(K.Colors.colorDD39D5)
+                }
+
+                AchievementsGameOverView(quizViewModel: quizViewModel)
+                    .padding(.bottom)
                 
                 Button {
                     dismiss()
@@ -83,8 +90,40 @@ struct GameOverView: View {
     }
 }
 
+fileprivate struct AchievementsGameOverView: View {
+    let quizViewModel: QuizViewModel
+    let width: CGFloat = K.screenWidth / 2.5
+    let height: CGFloat = K.screenWidth / 3
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                AchievementView(
+                    achievement: .speedrun,
+                    description: quizViewModel.speedrun,
+                    width: width,
+                    height: height
+                )
+                AchievementView(
+                    achievement: .connoisseur,
+                    description: quizViewModel.connoisseur,
+                    width: width,
+                    height: height
+                )
+                AchievementView(
+                    achievement: .combo,
+                    description: quizViewModel.combo,
+                    width: width,
+                    height: height
+                )
+            }
+        }
+    }
+}
+
 #Preview {
     NavigationView {
         GameOverView()
+            .environmentObject(QuizViewModel())
     }
 }
