@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AchievementView: View {
-    let achievement: Achievement
+    let achievement: TypeAchievement
+    let description: String
     let width: CGFloat
     let height: CGFloat
     let scale: CGFloat = 0.5
@@ -43,7 +44,7 @@ struct AchievementView: View {
                             Text(achievement.title)
                                 .font(.custom(K.Fonts.montserratBold, size: 12))
                                 .foregroundStyle(.white)
-                            Text(achievement.description)
+                            Text(description)
                                 .font(.custom(K.Fonts.montserratRegular, size: 12))
                                 .foregroundStyle(.white.opacity(0.79))
                         }
@@ -54,18 +55,14 @@ struct AchievementView: View {
     }
 }
 
-//#Preview {
-//    ZStack {
-//        BackgroundView()
-//        AchievementView(
-//            achievement: Achievement(
-//                type: .combo,
-//                image: TypeAchievement.combo.image,
-//                title: TypeAchievement.combo.title,
-//                description: "6"
-//            ),
-//            width: 125,
-//            height: 150
-//        )
-//    }
-//}
+#Preview {
+    ZStack {
+        BackgroundView()
+        AchievementView(
+            achievement: .speedrun,
+            description: "0:00",
+            width: 125,
+            height: 150
+        )
+    }
+}

@@ -234,6 +234,7 @@ struct CustomTabView: View {
                                         }
                                         .padding(.leading)
                                     }
+
                                 default:
                                     NavigationLink {
                                         QuizView()
@@ -251,13 +252,7 @@ struct CustomTabView: View {
                                 }
                             } else {
                                 VStack {
-                                    ForEach(menuViewModel.achievement) { achievement in
-                                        AchievementView(
-                                            achievement: achievement,
-                                            width: 110,
-                                            height: 125
-                                        )
-                                    }
+                                    AchievementMenuView(menuViewModel: menuViewModel)
                                 }
                             }
                         }
@@ -271,6 +266,33 @@ struct CustomTabView: View {
                 .tag(index)
             }
         }
+    }
+}
+
+fileprivate struct AchievementMenuView: View {
+    @ObservedObject var menuViewModel: MenuViewModel
+    let width: CGFloat = 110
+    let height: CGFloat = 125
+    
+    var body: some View {
+        AchievementView(
+            achievement: .speedrun,
+            description: menuViewModel.achievementSpeedrunIsActive ?? "0:00",
+            width: width,
+            height: height
+        )
+        AchievementView(
+            achievement: .combo,
+            description: menuViewModel.achievementComboIsActive ?? "0",
+            width: width,
+            height: height
+        )
+        AchievementView(
+            achievement: .connoisseur,
+            description: menuViewModel.achievementConnoisseurIsActive ?? "0",
+            width: width,
+            height: height
+        )
     }
 }
 
