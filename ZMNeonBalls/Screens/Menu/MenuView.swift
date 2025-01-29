@@ -234,6 +234,7 @@ struct CustomTabView: View {
                                         }
                                         .padding(.leading)
                                     }
+
                                 default:
                                     NavigationLink {
                                         QuizView()

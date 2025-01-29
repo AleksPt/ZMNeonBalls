@@ -13,7 +13,7 @@ final class QuizViewModel: ObservableObject {
     @Published var questions: [Question] = []
     @Published var timeProgress: Double = 30
     @Published var isShowGameOverView: Bool = false
-    @Published var currentStep = 1
+    @Published var currentStep = 20
     
     let totalTime: Double = 30
     var countCorrectAnswers = 0
@@ -50,6 +50,8 @@ final class QuizViewModel: ObservableObject {
         if !tapToBack {
             isShowGameOverView = true
         }
+        
+        currentStep = 1
     }
     
     func startTimer() {

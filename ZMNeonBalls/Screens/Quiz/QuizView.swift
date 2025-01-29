@@ -70,12 +70,19 @@ struct QuizView: View {
                             .foregroundStyle(isSelectedAnswer ? K.Colors.colorE160BA : Color.white)
                         Text(K.Texts.Buttons.next)
                             .font(.custom(K.Fonts.montserratMedium, size: 20))
-                            .foregroundStyle(isSelectedAnswer ? Color.white : Color.black)
+                            .foregroundStyle(isSelectedAnswer ? Color.white : K.Colors.color580A9C)
                     }
                 }
                 .disabled(!isSelectedAnswer)
                 .offset(y: -30)
             }
+            
+            NavigationLink(
+                destination: GameOverView(),
+                isActive: $quizViewModel.isShowGameOverView) {
+                    EmptyView()
+                }
+
         }
         .navigationBarBackButtonHidden(true)
         .customNavBar {
@@ -85,9 +92,6 @@ struct QuizView: View {
         .onAppear {
             quizViewModel.startQuiz()
         }
-        .fullScreenCover(isPresented: $quizViewModel.isShowGameOverView, content: {
-            GameOverView()
-        })
     }
 }
 

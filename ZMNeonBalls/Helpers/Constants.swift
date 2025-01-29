@@ -364,6 +364,7 @@ enum K {
         static let color580A9C = Color("580A9C")
         static let colorB446E7 = Color("B446E7")
         static let colorE160BA = Color("E160BA")
+        static let colorDD39D5 = Color("DD39D5")
     }
     
     // MARK: - Images
