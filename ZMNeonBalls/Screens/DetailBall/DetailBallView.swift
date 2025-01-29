@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailBallView: View {
-    
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: LibraryViewModel
     @State var indexBall: Int = 0
     
@@ -33,6 +33,7 @@ struct DetailBallView: View {
                     subtitle: viewModel.balls[indexBall].description
                 )
                 .padding(.horizontal)
+                .padding(.top, 50)
                 
                 TabDetailBallView(
                     viewModel: viewModel,
@@ -68,16 +69,16 @@ struct DetailBallView: View {
                         screenWidth: K.screenWidth,
                         ball: viewModel.balls[indexBall]
                     )
-                        .frame(height: K.screenWidth / 2)
+                    .frame(height: K.screenWidth / 2.5)
                         .padding(.horizontal)
                 case 1:
                     FactViewDetailBall(ball: $viewModel.balls[indexBall])
-                        .frame(height: K.screenWidth / 2 + 40)
+                        .frame(height: K.screenWidth / 2.5 + 70)
                         .padding(.horizontal)
                         .padding(.bottom, 38)
                 default:
                     GameViewDetailBall(ball: $viewModel.balls[indexBall])
-                        .frame(height: K.screenWidth / 2 + 40)
+                        .frame(height: K.screenWidth / 2.5 + 70)
                         .padding(.horizontal)
                         .padding(.bottom, 38)
                 }
@@ -86,9 +87,14 @@ struct DetailBallView: View {
                     SwitchButtonView(
                         infoSelectedFirstView: $infoSelectedFirstView
                     )
+                    .padding(.bottom, 30)
                 }
             }
             .padding(.vertical)
+        }
+        .navigationBarBackButtonHidden(true)
+        .customNavBar {
+            dismiss()
         }
 
     }
@@ -547,5 +553,7 @@ struct SwitchButtonView: View {
 }
 
 #Preview {
-    DetailBallView(viewModel: LibraryViewModel(), indexBall: 2)
+    NavigationView {
+        DetailBallView(viewModel: LibraryViewModel(), indexBall: 2)
+    }
 }

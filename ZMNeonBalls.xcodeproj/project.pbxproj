@@ -34,6 +34,9 @@
 		FAC183F72D494B010047C80A /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC183F62D494B010047C80A /* View+.swift */; };
 		FAC183FB2D494D230047C80A /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC183FA2D494D230047C80A /* CircleButtonView.swift */; };
 		FAC183FD2D4959A00047C80A /* SelectTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC183FC2D4959A00047C80A /* SelectTabButton.swift */; };
+		FAC184012D4985130047C80A /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC184002D4985130047C80A /* QuizView.swift */; };
+		FAC184032D49851C0047C80A /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC184022D49851C0047C80A /* QuizViewModel.swift */; };
+		FAC184082D4A19D10047C80A /* CustomNavBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC184072D4A19D10047C80A /* CustomNavBackButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		FAC183F62D494B010047C80A /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		FAC183FA2D494D230047C80A /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		FAC183FC2D4959A00047C80A /* SelectTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTabButton.swift; sourceTree = "<group>"; };
+		FAC184002D4985130047C80A /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		FAC184022D49851C0047C80A /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		FAC184072D4A19D10047C80A /* CustomNavBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +181,7 @@
 				FAC0F4962D4921A600DCCAEF /* Menu */,
 				FAC0F4992D4921C500DCCAEF /* Library */,
 				FAC183F02D4938580047C80A /* DetailBall */,
+				FAC183FF2D4985000047C80A /* Quiz */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 		FA3BF9162D47FDDF00420546 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				FAC184072D4A19D10047C80A /* CustomNavBackButton.swift */,
 				FAC183FC2D4959A00047C80A /* SelectTabButton.swift */,
 				FAC183FA2D494D230047C80A /* CircleButtonView.swift */,
 				FAC183F32D49466D0047C80A /* CapsuleButtonView.swift */,
@@ -240,6 +248,15 @@
 				FAC183F62D494B010047C80A /* View+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAC183FF2D4985000047C80A /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				FAC184022D49851C0047C80A /* QuizViewModel.swift */,
+				FAC184002D4985130047C80A /* QuizView.swift */,
+			);
+			path = Quiz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAC0F4982D4921C100DCCAEF /* LibraryView.swift in Sources */,
+				FAC184032D49851C0047C80A /* QuizViewModel.swift in Sources */,
 				FA3BF8DB2D47C52000420546 /* Ball.swift in Sources */,
 				FA3BF8EC2D47E0BF00420546 /* Question.swift in Sources */,
 				FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */,
@@ -332,8 +350,10 @@
 				FAC183EF2D4938530047C80A /* DetailBallView.swift in Sources */,
 				FAC0F4952D490FE500DCCAEF /* Achievement.swift in Sources */,
 				FAC183FD2D4959A00047C80A /* SelectTabButton.swift in Sources */,
+				FAC184012D4985130047C80A /* QuizView.swift in Sources */,
 				FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */,
 				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
+				FAC184082D4A19D10047C80A /* CustomNavBackButton.swift in Sources */,
 				FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */,
 				FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */,
 				FAC0F49B2D4921F500DCCAEF /* LibraryViewModel.swift in Sources */,
