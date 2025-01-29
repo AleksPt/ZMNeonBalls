@@ -19,78 +19,75 @@ struct QuizView: View {
     ]
     
     var body: some View {
-        ZStack {
-            BackgroundView()
-            
-            BackgroundBallsView()
-            
-            VStack {
-                ProgressView(
-                    currentStep: quizViewModel.currentStep,
-                    totalSteps: quizViewModel.questions.count
-                )
-                .padding(.horizontal)
-                .offset(y: 35)
+        if quizViewModel.isShowGameOverView {
+            GameOverView()
+        } else {
+            ZStack {
+                BackgroundView()
+                
+                BackgroundBallsView()
                 
                 VStack {
-                    TimerProgressView(
-                        totalTime: quizViewModel.totalTime,
-                        progress: quizViewModel.timeProgress
+                    ProgressView(
+                        currentStep: quizViewModel.currentStep,
+                        totalSteps: quizViewModel.questions.count
                     )
-                    .offset(y: 97.5)
+                    .padding(.horizontal)
+                    .offset(y: 35)
                     
-                    QuestionShape(
-                        questionNumber: quizViewModel.currentStep,
-                        text: quizViewModel.questions[quizViewModel.currentStep - 1].title,
-                        width: K.screenWidth - 35,
-                        height: 275
+                    VStack {
+                        TimerProgressView(
+                            totalTime: quizViewModel.totalTime,
+                            progress: quizViewModel.timeProgress
+                        )
+                        .offset(y: 97.5)
+                        
+                        QuestionShape(
+                            questionNumber: quizViewModel.currentStep,
+                            text: quizViewModel.questions[quizViewModel.currentStep - 1].title,
+                            width: K.screenWidth - 35,
+                            height: 275
+                        )
+                    }
+                    .offset(y: -60)
+                    
+                    AnswersView(
+                        size: K.screenWidth / 2.5,
+                        answers: quizViewModel.questions[quizViewModel.currentStep - 1].answers,
+                        columns: columns,
+                        isSelectedAnswer: $isSelectedAnswer,
+                        selectedAnswer: $selectedAnswer
                     )
-                }
-                .offset(y: -60)
-                
-                AnswersView(
-                    size: K.screenWidth / 2.5,
-                    answers: quizViewModel.questions[quizViewModel.currentStep - 1].answers,
-                    columns: columns,
-                    isSelectedAnswer: $isSelectedAnswer,
-                    selectedAnswer: $selectedAnswer
-                )
-                .offset(y: -50)
-                
-                Button {
-                    if let selectedAnswer {
-                        quizViewModel.checkIsCorrectAnswer(answerIndex: selectedAnswer)
-                        isSelectedAnswer = false
-                        self.selectedAnswer = nil
+                    .offset(y: -50)
+                    
+                    Button {
+                        if let selectedAnswer {
+                            quizViewModel.checkIsCorrectAnswer(answerIndex: selectedAnswer)
+                            isSelectedAnswer = false
+                            self.selectedAnswer = nil
+                        }
+                    } label: {
+                        ZStack {
+                            Capsule()
+                                .frame(width: 100, height: 40)
+                                .foregroundStyle(isSelectedAnswer ? K.Colors.colorE160BA : Color.white)
+                            Text(K.Texts.Buttons.next)
+                                .font(.custom(K.Fonts.montserratMedium, size: 20))
+                                .foregroundStyle(isSelectedAnswer ? Color.white : K.Colors.color580A9C)
+                        }
                     }
-                } label: {
-                    ZStack {
-                        Capsule()
-                            .frame(width: 100, height: 40)
-                            .foregroundStyle(isSelectedAnswer ? K.Colors.colorE160BA : Color.white)
-                        Text(K.Texts.Buttons.next)
-                            .font(.custom(K.Fonts.montserratMedium, size: 20))
-                            .foregroundStyle(isSelectedAnswer ? Color.white : K.Colors.color580A9C)
-                    }
+                    .disabled(!isSelectedAnswer)
+                    .offset(y: -30)
                 }
-                .disabled(!isSelectedAnswer)
-                .offset(y: -30)
             }
-            
-            NavigationLink(
-                destination: GameOverView(),
-                isActive: $quizViewModel.isShowGameOverView) {
-                    EmptyView()
-                }
-
-        }
-        .navigationBarBackButtonHidden(true)
-        .customNavBar {
-            dismiss()
-            quizViewModel.finishQuiz(tapToBack: true)
-        }
-        .onAppear {
-            quizViewModel.startQuiz()
+            .navigationBarBackButtonHidden(true)
+            .customNavBar {
+                dismiss()
+                quizViewModel.finishQuiz(abortQuiz: true)
+            }
+            .onAppear {
+                quizViewModel.startQuiz()
+            }
         }
     }
 }

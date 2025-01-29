@@ -43,15 +43,14 @@ final class QuizViewModel: ObservableObject {
         resetTimer()
     }
     
-    func finishQuiz(tapToBack: Bool = false) {
+    func finishQuiz(abortQuiz: Bool = false) {
         stopTimer()
         timeProgress = totalTime
+        currentStep = 1
         
-        if !tapToBack {
+        if abortQuiz == false {
             isShowGameOverView = true
         }
-        
-        currentStep = 1
     }
     
     func startTimer() {
@@ -62,6 +61,7 @@ final class QuizViewModel: ObservableObject {
             
             if timeProgress > 0 {
                 timeProgress -= 1
+                print(timeProgress)
             } else {
                 finishQuiz()
             }

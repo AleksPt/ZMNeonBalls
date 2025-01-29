@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameOverView: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var quizViewModel: QuizViewModel
     
     var body: some View {
         ZStack {
@@ -61,7 +62,7 @@ struct GameOverView: View {
                     .foregroundStyle(K.Colors.colorDD39D5)
                 
                 Button {
-                    
+                    dismiss()
                 } label: {
                     ZStack {
                         Capsule()
@@ -77,7 +78,7 @@ struct GameOverView: View {
         }
         .navigationBarBackButtonHidden(true)
         .customNavBar {
-            dismiss()
+            quizViewModel.isShowGameOverView = false
         }
     }
 }
