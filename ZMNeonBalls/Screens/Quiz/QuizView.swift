@@ -33,23 +33,22 @@ struct QuizView: View {
                         totalSteps: quizViewModel.questions.count
                     )
                     .padding(.horizontal)
-                    .offset(y: 35)
+                    .padding(.bottom, -20)
                     
-                    VStack {
-                        TimerProgressView(
-                            totalTime: quizViewModel.totalTime,
-                            progress: quizViewModel.timeProgress
-                        )
-                        .offset(y: 97.5)
-                        
+                    ZStack {
                         QuestionShape(
                             questionNumber: quizViewModel.currentStep,
                             text: quizViewModel.questions[quizViewModel.currentStep - 1].title,
                             width: K.screenWidth - 35,
-                            height: 275
+                            height: 250
                         )
+                        
+                        TimerProgressView(
+                            totalTime: quizViewModel.totalTime,
+                            progress: quizViewModel.timeProgress
+                        )
+                        .offset(y: -75)
                     }
-                    .offset(y: -60)
                     
                     AnswersView(
                         size: K.screenWidth / 2.5,
@@ -58,8 +57,6 @@ struct QuizView: View {
                         isSelectedAnswer: $isSelectedAnswer,
                         selectedAnswer: $selectedAnswer
                     )
-                    .offset(y: -50)
-                    
                     Button {
                         if let selectedAnswer {
                             quizViewModel.checkIsCorrectAnswer(answerIndex: selectedAnswer)
@@ -77,8 +74,8 @@ struct QuizView: View {
                         }
                     }
                     .disabled(!isSelectedAnswer)
-                    .offset(y: -30)
                 }
+                .padding(.bottom, 50)
             }
             .navigationBarBackButtonHidden(true)
             .customNavBar {
@@ -223,10 +220,11 @@ struct QuestionShape: View {
                     Text(questionNumber < 10 ? "0" + questionNumber.description : questionNumber.description)
                         .foregroundStyle(K.Colors.colorE160BA)
                 }
-                .font(.custom(K.Fonts.montserratSemibold, size: 30))
+                .font(.custom(K.Fonts.montserratSemibold, size: 25))
                 
                 Text("Science Quiz")
                     .foregroundStyle(.white.opacity(0.4))
+                    .padding(.bottom, -5)
                 
                 DashedLineView(width: width / 1.25)
                 
@@ -235,7 +233,7 @@ struct QuestionShape: View {
                     .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.white)
-                    .font(.custom(K.Fonts.montserratSemibold, size: 17))
+                    .font(.custom(K.Fonts.montserratSemibold, size: 15))
                     .frame(width: width / 1.15)
                     .frame(minHeight: 70)
             }

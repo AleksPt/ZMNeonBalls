@@ -44,6 +44,8 @@ struct AchievementView: View {
                         
                         VStack(spacing: 5) {
                             Text(achievement.title)
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
                                 .font(.custom(K.Fonts.montserratBold, size: 12))
                                 .foregroundStyle(.white)
                             Text(description)

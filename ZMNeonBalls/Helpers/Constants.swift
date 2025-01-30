@@ -10,6 +10,7 @@ import SwiftUI
 enum K {
     
     static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.height
     
     // MARK: - Fonts
     enum Fonts {

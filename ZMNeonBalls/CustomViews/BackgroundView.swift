@@ -14,7 +14,6 @@ struct BackgroundView: View {
             
             K.Images.background
                 .resizable()
-                .scaledToFill()
                 .blendMode(.softLight)
             
             LinearGradient(
@@ -26,7 +25,11 @@ struct BackgroundView: View {
                 endPoint: .bottom
             )
         }
-        .scaleEffect(1.1)
+        .scaleEffect(1.01)
         .ignoresSafeArea()
     }
+}
+
+#Preview {
+    BackgroundView()
 }

@@ -22,8 +22,8 @@ struct GameOverView: View {
                 K.Images.gameOver
                     .resizable()
                     .scaledToFit()
-                Spacer()
             }
+            .offset(y: -200)
             
             K.Images.star
                 .resizable()
@@ -48,7 +48,6 @@ struct GameOverView: View {
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.white)
                     .font(.custom(K.Fonts.montserratBold, size: 80))
-                    .padding(.top, 50)
                 
                 Spacer()
                 
@@ -84,7 +83,7 @@ struct GameOverView: View {
                     }
                 }
             }
-            .padding(.bottom, 60)
+//            .padding(.bottom, 60)
         }
         .navigationBarBackButtonHidden(true)
         .customNavBar {
@@ -134,5 +133,6 @@ fileprivate struct AchievementsGameOverView: View {
     NavigationView {
         GameOverView()
             .environmentObject(QuizViewModel())
+            .environmentObject(MenuViewModel())
     }
 }

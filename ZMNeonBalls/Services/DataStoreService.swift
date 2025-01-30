@@ -5,7 +5,7 @@
 //  Created by Алексей on 27.01.2025.
 //
 
-import Foundation
+import SwiftUI
 
 final class DataStoreService {
     static let shared = DataStoreService()
@@ -752,7 +752,8 @@ final class DataStoreService {
                     title: K.Texts.Screens.Menu.infoTitle,
                     description: K.Texts.Screens.Menu.infoDescription,
                     imageBacground: K.Images.Menu.info,
-                    imageForeground: K.Images.Balls.baseBall
+                    imageForeground: K.Images.Balls.baseBall,
+                    newImage: Image(.infopng)
                 )
             ),
             
@@ -762,7 +763,8 @@ final class DataStoreService {
                     title: K.Texts.Screens.Menu.testTitle,
                     description: K.Texts.Screens.Menu.testDescription,
                     imageBacground: K.Images.Menu.test,
-                    imageForeground: K.Images.Balls.golfBall
+                    imageForeground: K.Images.Balls.golfBall,
+                    newImage: Image(.testpng)
                 )
             ),
             
@@ -772,7 +774,8 @@ final class DataStoreService {
                     title: K.Texts.Screens.Menu.resultsTitle,
                     description: nil,
                     imageBacground: K.Images.Menu.results,
-                    imageForeground: K.Images.Balls.tableTennisBall
+                    imageForeground: K.Images.Balls.tableTennisBall,
+                    newImage: Image(.resultspng)
                 )
             ),
         ]

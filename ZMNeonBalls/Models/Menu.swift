@@ -18,4 +18,5 @@ struct Card {
     let description: String?
     let imageBacground: Image
     let imageForeground: Image
+    let newImage: Image
 }

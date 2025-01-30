@@ -33,7 +33,6 @@ struct DetailBallView: View {
                     subtitle: viewModel.balls[indexBall].description
                 )
                 .padding(.horizontal)
-                .padding(.top, 50)
                 
                 TabDetailBallView(
                     viewModel: viewModel,
@@ -66,31 +65,30 @@ struct DetailBallView: View {
                 case 0:
                     InfoViewDetailBall(
                         infoSelectedFirstView: $infoSelectedFirstView,
-                        screenWidth: K.screenWidth,
+                        sizeScreen: K.screenWidth,
                         ball: viewModel.balls[indexBall]
                     )
                     .frame(height: K.screenWidth / 2.5)
                         .padding(.horizontal)
                 case 1:
                     FactViewDetailBall(ball: $viewModel.balls[indexBall])
-                        .frame(height: K.screenWidth / 2.5 + 70)
+                        .frame(height: K.screenWidth / 2.012)
                         .padding(.horizontal)
-                        .padding(.bottom, 38)
+//                        .padding(.bottom, 38)
                 default:
                     GameViewDetailBall(ball: $viewModel.balls[indexBall])
-                        .frame(height: K.screenWidth / 2.5 + 70)
+                        .frame(height: K.screenWidth / 2.012)
                         .padding(.horizontal)
-                        .padding(.bottom, 38)
+//                        .padding(.bottom, 38)
                 }
                 
                 if selectedCapsuleButton == 0 {
                     SwitchButtonView(
                         infoSelectedFirstView: $infoSelectedFirstView
                     )
-                    .padding(.bottom, 30)
                 }
             }
-            .padding(.vertical)
+            .padding(.bottom)
         }
         .navigationBarBackButtonHidden(true)
         .customNavBar {
@@ -189,7 +187,7 @@ struct InfoViewDetailBall: View {
     
     @Binding var infoSelectedFirstView: Bool
     @State private var detailInfoState: DetailInfoState? = nil
-    let screenWidth: CGFloat
+    let sizeScreen: CGFloat
     let ball: Ball
     
     var body: some View {
@@ -342,15 +340,18 @@ struct InfoViewDetailBall: View {
                             alignment: .topLeading
                         )
                         .overlay(
-                            CircleButtonView(
-                                width: 30,
-                                scale: 0.20) {
-                                    withAnimation {
-                                        detailInfoState = .structure
+                            VStack {
+                                Spacer(minLength: 80)
+                                CircleButtonView(
+                                    width: 30,
+                                    scale: 0.20) {
+                                        withAnimation {
+                                            detailInfoState = .structure
+                                        }
                                     }
-                                }
-                                .foregroundStyle(.white)
-                                .padding(),
+                                    .foregroundStyle(.white)
+                                    .padding()
+                            },
                             alignment: .bottomTrailing
                         )
                         .onTapGesture {
@@ -376,15 +377,18 @@ struct InfoViewDetailBall: View {
                             alignment: .topLeading
                         )
                         .overlay(
-                            CircleButtonView(
-                                width: 30,
-                                scale: 0.20) {
-                                    withAnimation {
-                                        detailInfoState = .characteristic
+                            VStack {
+                                Spacer(minLength: 80)
+                                CircleButtonView(
+                                    width: 30,
+                                    scale: 0.20) {
+                                        withAnimation {
+                                            detailInfoState = .characteristic
+                                        }
                                     }
-                                }
-                                .foregroundStyle(.white)
-                                .padding(),
+                                    .foregroundStyle(.white)
+                                    .padding()
+                            },
                             alignment: .bottomTrailing
                         )
                         .clipShape(.rect(cornerRadius: 20))
@@ -401,7 +405,7 @@ struct InfoViewDetailBall: View {
     private func infoDetailView(title: String, text: String) -> some View {
         ZStack {
             Rectangle()
-                .frame(height: screenWidth / 2)
+                .frame(height: sizeScreen / 2.5)
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
                 .overlay {
@@ -413,9 +417,7 @@ struct InfoViewDetailBall: View {
                         .font(.custom(K.Fonts.montserratSemibold, size: 17.5))
                     Text(text)
                         .font(.custom(K.Fonts.montserratMedium, size: 15))
-                    
-                    Spacer()
-                    
+                                        
                     HStack {
                         Spacer()
                         Button {
@@ -462,7 +464,7 @@ struct FactViewDetailBall: View {
                         .padding()
                     
                     Text(ball.fact)
-                        .font(.custom(K.Fonts.montserratMedium, size: 17.5))
+                        .font(.custom(K.Fonts.montserratMedium, size: 15))
                         .foregroundStyle(.white)
                         .padding()
                 },
@@ -549,7 +551,6 @@ struct SwitchButtonView: View {
                     }
                         .frame(width: 50)
                 )
-                .padding(.vertical, 20)
         }
     }
 }

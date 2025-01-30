@@ -21,7 +21,7 @@ struct LoadingView: View {
                         
                         Rectangle()
                             .fill(K.Colors.color7E35CD.opacity(0.3))
-                            .frame(width: K.screenWidth / 1.4, height: K.screenWidth / 1.4)
+                            .frame(width: K.screenHeight / 4, height: K.screenHeight / 4)
                             .clipShape(RoundedRectangle(cornerRadius: 29))
                             .overlay {
                                 RoundedRectangle(cornerRadius: 29).stroke(Color.white.opacity(0.2), lineWidth: 1.5)
@@ -33,10 +33,10 @@ struct LoadingView: View {
                                     .scaleEffect(0.8)
                             })
                             .rotationEffect(.degrees(-8.13))
-                            .offset(y: 100)
+                            .offset(y: 50)
                         
                         Rectangle()
-                            .frame(width: K.screenWidth / 1.5, height: K.screenWidth / 1.5)
+                            .frame(width: K.screenHeight / 4, height: K.screenHeight / 4)
                             .background(.ultraThinMaterial)
                             .opacity(0.8)
                             .clipShape(RoundedRectangle(cornerRadius: 29))
@@ -63,7 +63,7 @@ struct LoadingView: View {
                             Text(K.Texts.Screens.Splash.loading)
                                 .font(.custom(K.Fonts.montserratMedium, size: 30))
                                 .foregroundStyle(.white)
-                                .padding(.bottom, 50)
+                                .padding(.bottom, 10)
                         }
                     }
                 }

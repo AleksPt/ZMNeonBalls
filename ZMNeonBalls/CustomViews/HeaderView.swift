@@ -17,7 +17,7 @@ struct HeaderView: View {
                 Text(title)
                     .minimumScaleFactor(0.9)
                     .lineLimit(1)
-                    .font(.custom(K.Fonts.montserratMedium, size: 55))
+                    .font(.custom(K.Fonts.montserratMedium, size: 45))
                 Text(subtitle)
                     .font(.custom(K.Fonts.montserratMedium, size: 13))
             }

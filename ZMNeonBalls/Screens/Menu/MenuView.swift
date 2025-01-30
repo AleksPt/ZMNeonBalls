@@ -18,87 +18,70 @@ struct MenuView: View {
             checkedSelectedTab(index: selectedTab)
         }
     }
+    @State private var activeTab: Int?
     
     var body: some View {
-            ZStack {
-                BackgroundView()
-                ZStack(alignment: .bottom) {
-                    VStack {
-                        MenuHeaderView(
-                            title: K.Texts.Screens.Menu.title,
-                            subtitle: K.Texts.Screens.Menu.subtitle,
-                            font: K.Fonts.montserratMedium
-                        )
-                        .padding(.horizontal)
-                        .padding(.bottom, 8)
-                        
-                        BallsScrollView(viewModel: libraryViewModel)
-                            .padding(.bottom)
-                        
-                        HStack {
-                            CapsuleButtonView(
-                                isChecked: $infoIsChecked,
-                                text: K.Texts.Screens.Menu.infoTitle
-                            ) {
-                                selectedTab = 0
-                            }
-                            CapsuleButtonView(
-                                isChecked: $playIsChecked,
-                                text: K.Texts.Screens.Menu.play
-                            ) {
-                                selectedTab = 1
-                            }
-                            CapsuleButtonView(
-                                isChecked: $recordIsChecked,
-                                text: K.Texts.Screens.Menu.record
-                            ) {
-                                selectedTab = 2
-                            }
-                        }
-                        .frame(height: 30)
-                        .padding(.horizontal)
-                        
-                        CustomTabView(selectedTab: $selectedTab, menuViewModel: menuViewModel)
-                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-                            .animation(.easeInOut, value: selectedTab)
-                            .onChange(of: selectedTab, perform: { newValue in
-                                checkedSelectedTab(index: newValue)
-                            })
-                    }
-                    
-                    HStack(spacing: 60) {
-                        SelectTabButton(direction: .left) {
-                            if selectedTab > 0 {
-                                selectedTab -= 1
-                            } else {
-                                selectedTab = 2
-                            }
-                            
-                            checkedSelectedTab(index: selectedTab)
-                        }
-                        
-                        SelectTabButton(direction: .right) {
-                            if selectedTab < 2 {
-                                selectedTab += 1
-                            } else {
-                                selectedTab = 0
-                            }
-                            
-                            checkedSelectedTab(index: selectedTab)
-                        }
-                    }
-                    .padding(.top, 50)
+        ZStack {
+            BackgroundView()
+            VStack {
+                MenuHeaderView(
+                    title: K.Texts.Screens.Menu.title,
+                    subtitle: K.Texts.Screens.Menu.subtitle,
+                    font: K.Fonts.montserratMedium
+                )
+                .padding(.horizontal)
+                .padding(.bottom, 8)
+                
+                BallsScrollView(viewModel: libraryViewModel)
                     .padding(.bottom)
+                
+                CapsuleButtonViews(
+                    infoIsChecked: $infoIsChecked,
+                    playIsChecked: $playIsChecked,
+                    recordIsChecked: $recordIsChecked,
+                    selectedTab: $selectedTab
+                )
+                .frame(height: 30)
+                .padding(.horizontal)
+                
+                CustomTabView(selectedTab: $selectedTab, menuViewModel: menuViewModel) {
+                    checkedSelectedTab(index: selectedTab)
                 }
-                .padding(.vertical)
-                .padding(.top, 25)
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                .animation(.easeInOut, value: selectedTab)
+                .onChange(of: selectedTab, perform: { newValue in
+                    checkedSelectedTab(index: newValue)
+                })
+                .frame(height: K.screenHeight / 1.75)
+                .onTapGesture {
+                    switch selectedTab {
+                    case 0:
+                        activeTab = 0
+                    case 1:
+                        activeTab = 1
+                    default:
+                        break
+                    }
+                }
+                
+                NavigationLink(destination: LibraryView(), tag: 0, selection: $activeTab) {
+                    EmptyView()
+                }
+                NavigationLink(destination: QuizView(), tag: 1, selection: $activeTab) {
+                    EmptyView()
+                }
+                
+                Spacer(minLength: 50)
             }
-            .navigationBarBackButtonHidden(true)
-            .onAppear {
-                menuViewModel.getAchievements()
-                menuViewModel.updateAchievements()
-            }
+            .padding(.top, 40)
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            menuViewModel.getAchievements()
+            menuViewModel.updateAchievements()
+        }
+    }
     
     private func checkedSelectedTab(index: Int) {
         switch index {
@@ -125,7 +108,7 @@ struct MenuView: View {
     }
 }
 
-struct MenuHeaderView: View {
+fileprivate struct MenuHeaderView: View {
     let title: String
     let subtitle: String
     let font: String
@@ -137,7 +120,7 @@ struct MenuHeaderView: View {
                     .font(.custom(font, size: 15))
                     .foregroundStyle(Color.white.opacity(0.49))
                 Text(title)
-                    .font(.custom(font, size: 55))
+                    .font(.custom(font, size: 45))
                     .foregroundStyle(.white)
             }
             
@@ -146,7 +129,7 @@ struct MenuHeaderView: View {
     }
 }
 
-struct BallsScrollView: View {
+fileprivate struct BallsScrollView: View {
     let viewModel: LibraryViewModel
     
     var body: some View {
@@ -185,98 +168,110 @@ struct BallsScrollView: View {
     }
 }
 
-struct CustomTabView: View {
+fileprivate struct CapsuleButtonViews: View {
+    @Binding var infoIsChecked: Bool
+    @Binding var playIsChecked: Bool
+    @Binding var recordIsChecked: Bool
+    @Binding var selectedTab: Int
+    var body: some View {
+        HStack {
+            CapsuleButtonView(
+                isChecked: $infoIsChecked,
+                text: K.Texts.Screens.Menu.infoTitle
+            ) {
+                selectedTab = 0
+            }
+            CapsuleButtonView(
+                isChecked: $playIsChecked,
+                text: K.Texts.Screens.Menu.play
+            ) {
+                selectedTab = 1
+            }
+            CapsuleButtonView(
+                isChecked: $recordIsChecked,
+                text: K.Texts.Screens.Menu.record
+            ) {
+                selectedTab = 2
+            }
+        }
+    }
+}
+
+fileprivate struct SelectTabButtonsView: View {
+    @Binding var selectedTab: Int
+    let action: () -> ()
+    var body: some View {
+        HStack(spacing: 60) {
+            SelectTabButton(direction: .left) {
+                if selectedTab > 0 {
+                    selectedTab -= 1
+                } else {
+                    selectedTab = 2
+                }
+                
+                action()
+            }
+            
+            SelectTabButton(direction: .right) {
+                if selectedTab < 2 {
+                    selectedTab += 1
+                } else {
+                    selectedTab = 0
+                }
+                
+                action()
+            }
+        }
+    }
+}
+
+fileprivate struct CustomTabView: View {
     @Binding var selectedTab: Int
     @ObservedObject var menuViewModel: MenuViewModel
+    let action: () -> ()
     
     var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(menuViewModel.menu.indices, id: \.self) { index in
                 
                 let item = menuViewModel.menu[index]
-                
                 ZStack {
-                    item.card.imageBacground
-                        .resizable()
-                    item.card.imageForeground
+                    item.card.newImage
                         .resizable()
                         .scaledToFit()
-                        .scaleEffect(0.9)
-                        .blur(radius: 10)
-                        .offset(y: 25)
-                    item.card.imageForeground
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.9)
-                        .offset(y: 25)
-                    
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .top, spacing: 15) {
-                            Text(item.card.title)
-                                .font(.custom(K.Fonts.montserratMedium, size: 50))
-                            
-                            if let text = item.card.description {
-                                Text(text)
-                                    .font(.custom(K.Fonts.montserratMedium, size: 15))
-                                    .opacity(0.49)
-                                    .offset(y: 5)
-                            }
-                            
-                            if selectedTab != 2 {
-                                switch selectedTab {
-                                case 0:
-                                    NavigationLink {
-                                        LibraryView()
-                                    } label: {
-                                        ZStack {
-                                            Circle()
-                                                .frame(width: 50)
-                                                .overlay {
-                                                    K.Images.arrow
-                                                        .scaleEffect(0.35)
-                                                }
-                                        }
-                                        .padding(.leading)
+                        .overlay {
+                            if index == 2 {
+                                HStack {
+                                    Spacer()
+                                    VStack {
+                                        AchievementMenuView(
+                                            menuViewModel: menuViewModel,
+                                            width: K.screenHeight / 7,
+                                            height: K.screenHeight / 7
+                                        )
+                                            .padding(.trailing, 30)
+                                            .padding(.top)
+                                        Spacer()
                                     }
-
-                                default:
-                                    NavigationLink {
-                                        QuizView()
-                                    } label: {
-                                        ZStack {
-                                            Circle()
-                                                .frame(width: 50)
-                                                .overlay {
-                                                    K.Images.arrow
-                                                        .scaleEffect(0.35)
-                                                }
-                                        }
-                                        .padding(.leading)
-                                    }
-                                }
-                            } else {
-                                VStack {
-                                    AchievementMenuView(menuViewModel: menuViewModel)
                                 }
                             }
                         }
-                        .foregroundStyle(.white)
-                        
-                        Spacer()
-                    }
-                    .padding()
                 }
-                .padding()
-                .tag(index)
             }
+        }
+        .overlay {
+            SelectTabButtonsView(selectedTab: $selectedTab) {
+                action()
+            }
+            .offset(y: K.screenHeight / 4)
         }
     }
 }
 
 fileprivate struct AchievementMenuView: View {
     @ObservedObject var menuViewModel: MenuViewModel
-    let width: CGFloat = 110
-    let height: CGFloat = 125
+    let width: CGFloat
+    let height: CGFloat
     
     var body: some View {
         VStack {
