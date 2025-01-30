@@ -9,15 +9,12 @@ import Foundation
 
 final class StorageService {
     static let shared = StorageService()
-    
     var speedrunResult: Int?
     var connoisseurResult: Int?
     var comboResult: Int?
-
+    
     private init() {
-        speedrunResult = getResultAchievement(forKey: .speedrun)
-        connoisseurResult = getResultAchievement(forKey: .connoisseur)
-        comboResult = getResultAchievement(forKey: .combo)
+        updateResultAchievement()
     }
     
     func saveResultAchievement(value: Int, achievement: TypeAchievement) {
@@ -40,5 +37,11 @@ final class StorageService {
         case .combo:
             UserDefaults.standard.integer(forKey: UDKeys.Achievment.comboResult)
         }
+    }
+    
+    func updateResultAchievement() {
+        speedrunResult = getResultAchievement(forKey: .speedrun)
+        connoisseurResult = getResultAchievement(forKey: .connoisseur)
+        comboResult = getResultAchievement(forKey: .combo)
     }
 }

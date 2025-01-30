@@ -47,6 +47,8 @@ final class QuizViewModel: ObservableObject {
         startTimer()
         countCorrectAnswers = 0
         allTime = 0
+        maxComboCount = 0
+        countNewRecords = 0
     }
     
     func checkIsCorrectAnswer(answerIndex: Int) {
@@ -89,7 +91,6 @@ final class QuizViewModel: ObservableObject {
             if timeProgress > 0 {
                 timeProgress -= 1
                 allTime += 1
-                print(allTime)
             } else {
                 finishQuiz()
             }
@@ -109,7 +110,7 @@ final class QuizViewModel: ObservableObject {
     
     private func saveResult() {
         if let speedrun = storageService.speedrunResult {
-            if allTime < speedrun {
+            if allTime < speedrun || speedrun == 0 {
                 storageService.saveResultAchievement(value: allTime, achievement: .speedrun)
                 countNewRecords += 1
             }
@@ -129,7 +130,7 @@ final class QuizViewModel: ObservableObject {
         }
         
         if let connoisseur = storageService.connoisseurResult {
-            if connoisseur > countCorrectAnswers {
+            if countCorrectAnswers > connoisseur {
                 storageService.saveResultAchievement(value: countCorrectAnswers, achievement: .connoisseur)
                 countNewRecords += 1
             }

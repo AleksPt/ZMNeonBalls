@@ -94,6 +94,10 @@ struct MenuView: View {
                 .padding(.top, 25)
             }
             .navigationBarBackButtonHidden(true)
+            .onAppear {
+                menuViewModel.getAchievements()
+                menuViewModel.updateAchievements()
+            }
         }
     
     private func checkedSelectedTab(index: Int) {
@@ -275,24 +279,26 @@ fileprivate struct AchievementMenuView: View {
     let height: CGFloat = 125
     
     var body: some View {
-        AchievementView(
-            achievement: .speedrun,
-            description: menuViewModel.achievementSpeedrunIsActive ?? "0:00",
-            width: width,
-            height: height
-        )
-        AchievementView(
-            achievement: .combo,
-            description: menuViewModel.achievementComboIsActive ?? "0",
-            width: width,
-            height: height
-        )
-        AchievementView(
-            achievement: .connoisseur,
-            description: menuViewModel.achievementConnoisseurIsActive ?? "0",
-            width: width,
-            height: height
-        )
+        VStack {
+            AchievementView(
+                achievement: .speedrun,
+                description: menuViewModel.speedrun,
+                width: width,
+                height: height
+            )
+            AchievementView(
+                achievement: .combo,
+                description: menuViewModel.combo,
+                width: width,
+                height: height
+            )
+            AchievementView(
+                achievement: .connoisseur,
+                description: menuViewModel.connoisseur,
+                width: width,
+                height: height
+            )
+        }
     }
 }
 

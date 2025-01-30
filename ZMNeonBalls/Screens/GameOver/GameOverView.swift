@@ -10,6 +10,7 @@ import SwiftUI
 struct GameOverView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var quizViewModel: QuizViewModel
+    @EnvironmentObject var menuViewModel: MenuViewModel
     private let storageService: StorageService = StorageService.shared
     @State private var countNewRecords: Int = 0
     
@@ -69,6 +70,9 @@ struct GameOverView: View {
                 
                 Button {
                     dismiss()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        quizViewModel.isShowGameOverView = false
+                    }
                 } label: {
                     ZStack {
                         Capsule()
@@ -85,6 +89,11 @@ struct GameOverView: View {
         .navigationBarBackButtonHidden(true)
         .customNavBar {
             quizViewModel.isShowGameOverView = false
+        }
+        .onAppear {
+            storageService.updateResultAchievement()
+            menuViewModel.getAchievements()
+            menuViewModel.updateAchievements()
         }
     }
 }
