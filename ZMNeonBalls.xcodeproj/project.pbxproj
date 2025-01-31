@@ -22,6 +22,7 @@
 		FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9172D47FDF000420546 /* BackgroundView.swift */; };
 		FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9192D48B58600420546 /* MenuView.swift */; };
 		FA3D34302D4CE7BE00BFBAB2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */; };
+		FA3D34372D4D03E000BFBAB2 /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */; };
 		FA56D9E92D4A83BF00FF6B8E /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9E82D4A83BF00FF6B8E /* GameOverView.swift */; };
 		FA56D9ED2D4AC24C00FF6B8E /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9EC2D4AC24C00FF6B8E /* StorageService.swift */; };
 		FA56D9EF2D4AC26700FF6B8E /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9EE2D4AC26700FF6B8E /* UserDefaultsKeys.swift */; };
@@ -90,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3D34302D4CE7BE00BFBAB2 /* FirebaseDatabase in Frameworks */,
+				FA3D34372D4D03E000BFBAB2 /* AppsFlyerLib-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +311,7 @@
 			name = ZMNeonBalls;
 			packageProductDependencies = (
 				FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */,
+				FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */,
 			);
 			productName = ZMNeonBalls;
 			productReference = FA3BF8912D47A6E100420546 /* ZMNeonBalls.app */;
@@ -341,6 +344,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */,
 			);
 			productRefGroup = FA3BF8922D47A6E100420546 /* Products */;
 			projectDirPath = "";
@@ -629,6 +633,14 @@
 				minimumVersion = 11.7.0;
 			};
 		};
+		FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Static";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.16.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -636,6 +648,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
+			productName = "AppsFlyerLib-Static";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
