@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,10 @@
 		FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */; };
 		FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9172D47FDF000420546 /* BackgroundView.swift */; };
 		FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9192D48B58600420546 /* MenuView.swift */; };
+		FA3D34302D4CE7BE00BFBAB2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */; };
+		FA3D34372D4D03E000BFBAB2 /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */; };
+		FA3D343A2D4D07D300BFBAB2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D34392D4D07D300BFBAB2 /* FacebookCore */; };
+		FA3D343C2D4D0C8700BFBAB2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D343B2D4D0C8700BFBAB2 /* FirebaseMessaging */; };
 		FA56D9E92D4A83BF00FF6B8E /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9E82D4A83BF00FF6B8E /* GameOverView.swift */; };
 		FA56D9ED2D4AC24C00FF6B8E /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9EC2D4AC24C00FF6B8E /* StorageService.swift */; };
 		FA56D9EF2D4AC26700FF6B8E /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9EE2D4AC26700FF6B8E /* UserDefaultsKeys.swift */; };
@@ -60,10 +64,12 @@
 		FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FA3BF9172D47FDF000420546 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		FA3BF9192D48B58600420546 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		FA3D34342D4CF04600BFBAB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA56D9E82D4A83BF00FF6B8E /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		FA56D9EC2D4AC24C00FF6B8E /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		FA56D9EE2D4AC26700FF6B8E /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		FA56D9F32D4ADD5600FF6B8E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		FAB4E2502D4D253900E4EED5 /* ZMNeonBalls.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZMNeonBalls.entitlements; sourceTree = "<group>"; };
 		FAC0F48C2D48E88F00DCCAEF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		FAC0F4902D49089A00DCCAEF /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -87,6 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3D343C2D4D0C8700BFBAB2 /* FirebaseMessaging in Frameworks */,
+				FA3D34302D4CE7BE00BFBAB2 /* FirebaseDatabase in Frameworks */,
+				FA3D343A2D4D07D300BFBAB2 /* FacebookCore in Frameworks */,
+				FA3D34372D4D03E000BFBAB2 /* AppsFlyerLib-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3BF8CB2D47BFDA00420546 /* ZMNeonBalls */,
+				FA3D34312D4CE8AC00BFBAB2 /* Frameworks */,
 				FA3BF8922D47A6E100420546 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,7 +176,9 @@
 		FA3BF8D72D47C00D00420546 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				FA3D34342D4CF04600BFBAB2 /* GoogleService-Info.plist */,
 				FA3BF8C62D47BFDA00420546 /* Info.plist */,
+				FAB4E2502D4D253900E4EED5 /* ZMNeonBalls.entitlements */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -226,6 +239,13 @@
 				FA56D9F32D4ADD5600FF6B8E /* BlurView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FA3D34312D4CE8AC00BFBAB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FA56D9F22D4ACCA700FF6B8E /* GameOver */ = {
@@ -296,6 +316,10 @@
 			);
 			name = ZMNeonBalls;
 			packageProductDependencies = (
+				FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */,
+				FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */,
+				FA3D34392D4D07D300BFBAB2 /* FacebookCore */,
+				FA3D343B2D4D0C8700BFBAB2 /* FirebaseMessaging */,
 			);
 			productName = ZMNeonBalls;
 			productReference = FA3BF8912D47A6E100420546 /* ZMNeonBalls.app */;
@@ -317,6 +341,7 @@
 				};
 			};
 			buildConfigurationList = FA3BF88C2D47A6E000420546 /* Build configuration list for PBXProject "ZMNeonBalls" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -325,7 +350,11 @@
 			);
 			mainGroup = FA3BF8882D47A6E000420546;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
+			packageReferences = (
+				FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */,
+				FA3D34382D4D07D300BFBAB2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = FA3BF8922D47A6E100420546 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -442,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -499,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -514,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/Support/ZMNeonBalls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZMNeonBalls/Preview Content\"";
@@ -533,7 +563,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexpetrenko.ZMNeonBalls;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexpetrenko.neonballs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -550,6 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/Support/ZMNeonBalls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZMNeonBalls/Preview Content\"";
@@ -569,7 +600,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alexpetrenko.ZMNeonBalls;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexpetrenko.neonballs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -603,6 +634,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.7.0;
+			};
+		};
+		FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Static";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.16.0;
+			};
+		};
+		FA3D34382D4D07D300BFBAB2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
+			productName = "AppsFlyerLib-Static";
+		};
+		FA3D34392D4D07D300BFBAB2 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3D34382D4D07D300BFBAB2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		FA3D343B2D4D0C8700BFBAB2 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA3BF8892D47A6E000420546 /* Project object */;
 }
