@@ -69,6 +69,7 @@
 		FA56D9EC2D4AC24C00FF6B8E /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		FA56D9EE2D4AC26700FF6B8E /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		FA56D9F32D4ADD5600FF6B8E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		FAB4E2502D4D253900E4EED5 /* ZMNeonBalls.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZMNeonBalls.entitlements; sourceTree = "<group>"; };
 		FAC0F48C2D48E88F00DCCAEF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		FAC0F4902D49089A00DCCAEF /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 			children = (
 				FA3D34342D4CF04600BFBAB2 /* GoogleService-Info.plist */,
 				FA3BF8C62D47BFDA00420546 /* Info.plist */,
+				FAB4E2502D4D253900E4EED5 /* ZMNeonBalls.entitlements */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -541,7 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/ZMNeonBalls.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/Support/ZMNeonBalls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZMNeonBalls/Preview Content\"";
@@ -578,7 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/ZMNeonBalls.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/Support/ZMNeonBalls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZMNeonBalls/Preview Content\"";
