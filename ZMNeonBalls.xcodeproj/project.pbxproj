@@ -23,6 +23,8 @@
 		FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9192D48B58600420546 /* MenuView.swift */; };
 		FA3D34302D4CE7BE00BFBAB2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */; };
 		FA3D34372D4D03E000BFBAB2 /* AppsFlyerLib-Static in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */; };
+		FA3D343A2D4D07D300BFBAB2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D34392D4D07D300BFBAB2 /* FacebookCore */; };
+		FA3D343C2D4D0C8700BFBAB2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D343B2D4D0C8700BFBAB2 /* FirebaseMessaging */; };
 		FA56D9E92D4A83BF00FF6B8E /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9E82D4A83BF00FF6B8E /* GameOverView.swift */; };
 		FA56D9ED2D4AC24C00FF6B8E /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9EC2D4AC24C00FF6B8E /* StorageService.swift */; };
 		FA56D9EF2D4AC26700FF6B8E /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9EE2D4AC26700FF6B8E /* UserDefaultsKeys.swift */; };
@@ -90,7 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3D343C2D4D0C8700BFBAB2 /* FirebaseMessaging in Frameworks */,
 				FA3D34302D4CE7BE00BFBAB2 /* FirebaseDatabase in Frameworks */,
+				FA3D343A2D4D07D300BFBAB2 /* FacebookCore in Frameworks */,
 				FA3D34372D4D03E000BFBAB2 /* AppsFlyerLib-Static in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +316,8 @@
 			packageProductDependencies = (
 				FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */,
 				FA3D34362D4D03E000BFBAB2 /* AppsFlyerLib-Static */,
+				FA3D34392D4D07D300BFBAB2 /* FacebookCore */,
+				FA3D343B2D4D0C8700BFBAB2 /* FirebaseMessaging */,
 			);
 			productName = ZMNeonBalls;
 			productReference = FA3BF8912D47A6E100420546 /* ZMNeonBalls.app */;
@@ -345,6 +351,7 @@
 			packageReferences = (
 				FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */,
+				FA3D34382D4D07D300BFBAB2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = FA3BF8922D47A6E100420546 /* Products */;
 			projectDirPath = "";
@@ -534,6 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/ZMNeonBalls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZMNeonBalls/Preview Content\"";
@@ -570,6 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZMNeonBalls/ZMNeonBalls.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ZMNeonBalls/Preview Content\"";
@@ -641,6 +650,14 @@
 				minimumVersion = 6.16.0;
 			};
 		};
+		FA3D34382D4D07D300BFBAB2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -653,6 +670,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA3D34352D4D03E000BFBAB2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Static" */;
 			productName = "AppsFlyerLib-Static";
+		};
+		FA3D34392D4D07D300BFBAB2 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3D34382D4D07D300BFBAB2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		FA3D343B2D4D0C8700BFBAB2 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA3D342E2D4CE7BE00BFBAB2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
