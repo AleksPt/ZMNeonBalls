@@ -1,10 +1,3 @@
-//
-//  WebView.swift
-//  ZMNeonBalls
-//
-//  Created by Алексей on 31.01.2025.
-//
-
 import SwiftUI
 import WebKit
 
@@ -29,6 +22,7 @@ struct WebView: View {
             )
             .opacity(isLoading ? 0 : 1)
             .animation(.easeInOut, value: isLoading)
+            .statusBar(hidden: true)
             
             LoaderView(
                 progress: CGFloat(progress),

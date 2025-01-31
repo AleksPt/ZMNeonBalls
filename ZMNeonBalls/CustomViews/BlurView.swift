@@ -1,10 +1,3 @@
-//
-//  BlurView.swift
-//  ZMNeonBalls
-//
-//  Created by Алексей on 30.01.2025.
-//
-
 import SwiftUI
 
 struct BlurView: UIViewRepresentable {

@@ -1,10 +1,3 @@
-//
-//  LoaderView.swift
-//  ZMNeonBalls
-//
-//  Created by Алексей on 31.01.2025.
-//
-
 import SwiftUI
 
 struct LoaderView: View {
