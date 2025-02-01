@@ -12,13 +12,12 @@
 		FA3BF8CF2D47BFDA00420546 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C72D47BFDA00420546 /* Montserrat-Bold.ttf */; };
 		FA3BF8D02D47BFDA00420546 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C82D47BFDA00420546 /* Montserrat-Medium.ttf */; };
 		FA3BF8D12D47BFDA00420546 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA3BF8C92D47BFDA00420546 /* Montserrat-SemiBold.ttf */; };
-		FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8C52D47BFDA00420546 /* ContentView.swift */; };
 		FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */; };
 		FA3BF8DB2D47C52000420546 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8DA2D47C52000420546 /* Ball.swift */; };
-		FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8DD2D47C76500420546 /* Constants.swift */; };
+		FA3BF8DE2D47C76500420546 /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8DD2D47C76500420546 /* Labels.swift */; };
 		FA3BF8EC2D47E0BF00420546 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8EB2D47E0BF00420546 /* Question.swift */; };
 		FA3BF8EF2D47E24E00420546 /* DataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */; };
-		FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */; };
+		FA3BF8FD2D47F1DE00420546 /* LoadingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF8FC2D47F1DE00420546 /* LoadingGameView.swift */; };
 		FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9172D47FDF000420546 /* BackgroundView.swift */; };
 		FA3BF91A2D48B58600420546 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BF9192D48B58600420546 /* MenuView.swift */; };
 		FA3D34302D4CE7BE00BFBAB2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FA3D342F2D4CE7BE00BFBAB2 /* FirebaseDatabase */; };
@@ -31,6 +30,13 @@
 		FA56D9F42D4ADD5600FF6B8E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56D9F32D4ADD5600FF6B8E /* BlurView.swift */; };
 		FAB481662D4D48AD008A85B5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB481652D4D48AD008A85B5 /* WebView.swift */; };
 		FAB481682D4D4A03008A85B5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB481672D4D4A03008A85B5 /* LoaderView.swift */; };
+		FAB4816C2D4E6711008A85B5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4816B2D4E6711008A85B5 /* NetworkService.swift */; };
+		FAB4816E2D4E7E94008A85B5 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4816D2D4E7E94008A85B5 /* ViewModel.swift */; };
+		FAB481702D4E8220008A85B5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4816F2D4E8220008A85B5 /* Constants.swift */; };
+		FAB481722D4E8DCA008A85B5 /* FirebaseDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB481712D4E8DCA008A85B5 /* FirebaseDatabaseService.swift */; };
+		FAB481742D4E8E7F008A85B5 /* DeviceDataCollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB481732D4E8E7F008A85B5 /* DeviceDataCollectionService.swift */; };
+		FAB4817B2D4EA5FC008A85B5 /* BackUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4817A2D4EA5FC008A85B5 /* BackUrl.swift */; };
+		FAB4817D2D4EB47C008A85B5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4817C2D4EB47C008A85B5 /* ApiError.swift */; };
 		FAC0F48D2D48E88F00DCCAEF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F48C2D48E88F00DCCAEF /* Menu.swift */; };
 		FAC0F48F2D48E92E00DCCAEF /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */; };
 		FAC0F4912D49089A00DCCAEF /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F4902D49089A00DCCAEF /* AchievementView.swift */; };
@@ -53,17 +59,16 @@
 		FA3BF8912D47A6E100420546 /* ZMNeonBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZMNeonBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3BF8C22D47BFDA00420546 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA3BF8C42D47BFDA00420546 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA3BF8C52D47BFDA00420546 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA3BF8C62D47BFDA00420546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3BF8C72D47BFDA00420546 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		FA3BF8C82D47BFDA00420546 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		FA3BF8C92D47BFDA00420546 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMNeonBallsApp.swift; sourceTree = "<group>"; };
 		FA3BF8DA2D47C52000420546 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
-		FA3BF8DD2D47C76500420546 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA3BF8DD2D47C76500420546 /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		FA3BF8EB2D47E0BF00420546 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreService.swift; sourceTree = "<group>"; };
-		FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		FA3BF8FC2D47F1DE00420546 /* LoadingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingGameView.swift; sourceTree = "<group>"; };
 		FA3BF9172D47FDF000420546 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		FA3BF9192D48B58600420546 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		FA3D34342D4CF04600BFBAB2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -73,6 +78,13 @@
 		FA56D9F32D4ADD5600FF6B8E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		FAB481652D4D48AD008A85B5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		FAB481672D4D4A03008A85B5 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		FAB4816B2D4E6711008A85B5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FAB4816D2D4E7E94008A85B5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		FAB4816F2D4E8220008A85B5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FAB481712D4E8DCA008A85B5 /* FirebaseDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseService.swift; sourceTree = "<group>"; };
+		FAB481732D4E8E7F008A85B5 /* DeviceDataCollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataCollectionService.swift; sourceTree = "<group>"; };
+		FAB4817A2D4EA5FC008A85B5 /* BackUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUrl.swift; sourceTree = "<group>"; };
+		FAB4817C2D4EB47C008A85B5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		FAB4E2502D4D253900E4EED5 /* ZMNeonBalls.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZMNeonBalls.entitlements; sourceTree = "<group>"; };
 		FAC0F48C2D48E88F00DCCAEF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +151,7 @@
 				FA3BF8D82D47C01600420546 /* Models */,
 				FA3BF8D92D47C02800420546 /* Screens */,
 				FA3BF9162D47FDDF00420546 /* CustomViews */,
+				FAB481792D4EA5F1008A85B5 /* API */,
 				FA3BF8ED2D47E23D00420546 /* Services */,
 				FA3BF8DC2D47C74800420546 /* Helpers */,
 				FAC183F52D494AF40047C80A /* Extensions */,
@@ -152,6 +165,7 @@
 		FA3BF8D42D47BFE200420546 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FAB4816D2D4E7E94008A85B5 /* ViewModel.swift */,
 				FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */,
 			);
 			path = App;
@@ -201,9 +215,8 @@
 		FA3BF8D92D47C02800420546 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				FA3BF8C52D47BFDA00420546 /* ContentView.swift */,
 				FAB481652D4D48AD008A85B5 /* WebView.swift */,
-				FAB481642D4D4879008A85B5 /* Loading */,
+				FAB481642D4D4879008A85B5 /* LoadingGame */,
 				FAC0F4962D4921A600DCCAEF /* Menu */,
 				FAC0F4992D4921C500DCCAEF /* Library */,
 				FAC183F02D4938580047C80A /* DetailBall */,
@@ -216,7 +229,8 @@
 		FA3BF8DC2D47C74800420546 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FA3BF8DD2D47C76500420546 /* Constants.swift */,
+				FAB4816F2D4E8220008A85B5 /* Constants.swift */,
+				FA3BF8DD2D47C76500420546 /* Labels.swift */,
 				FA56D9EE2D4AC26700FF6B8E /* UserDefaultsKeys.swift */,
 			);
 			path = Helpers;
@@ -227,6 +241,9 @@
 			children = (
 				FA3BF8EE2D47E24E00420546 /* DataStoreService.swift */,
 				FA56D9EC2D4AC24C00FF6B8E /* StorageService.swift */,
+				FAB4816B2D4E6711008A85B5 /* NetworkService.swift */,
+				FAB481712D4E8DCA008A85B5 /* FirebaseDatabaseService.swift */,
+				FAB481732D4E8E7F008A85B5 /* DeviceDataCollectionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -262,12 +279,21 @@
 			path = GameOver;
 			sourceTree = "<group>";
 		};
-		FAB481642D4D4879008A85B5 /* Loading */ = {
+		FAB481642D4D4879008A85B5 /* LoadingGame */ = {
 			isa = PBXGroup;
 			children = (
-				FA3BF8FC2D47F1DE00420546 /* LoadingView.swift */,
+				FA3BF8FC2D47F1DE00420546 /* LoadingGameView.swift */,
 			);
-			path = Loading;
+			path = LoadingGame;
+			sourceTree = "<group>";
+		};
+		FAB481792D4EA5F1008A85B5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FAB4817A2D4EA5FC008A85B5 /* BackUrl.swift */,
+				FAB4817C2D4EB47C008A85B5 /* ApiError.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		FAC0F4962D4921A600DCCAEF /* Menu */ = {
@@ -402,11 +428,13 @@
 				FAC0F4982D4921C100DCCAEF /* LibraryView.swift in Sources */,
 				FA56D9F42D4ADD5600FF6B8E /* BlurView.swift in Sources */,
 				FAC184032D49851C0047C80A /* QuizViewModel.swift in Sources */,
+				FAB481742D4E8E7F008A85B5 /* DeviceDataCollectionService.swift in Sources */,
 				FA3BF8DB2D47C52000420546 /* Ball.swift in Sources */,
+				FAB4817D2D4EB47C008A85B5 /* ApiError.swift in Sources */,
 				FA3BF8EC2D47E0BF00420546 /* Question.swift in Sources */,
 				FA56D9EF2D4AC26700FF6B8E /* UserDefaultsKeys.swift in Sources */,
 				FA3BF9182D47FDF000420546 /* BackgroundView.swift in Sources */,
-				FA3BF8D22D47BFDA00420546 /* ContentView.swift in Sources */,
+				FAB481702D4E8220008A85B5 /* Constants.swift in Sources */,
 				FAC183FB2D494D230047C80A /* CircleButtonView.swift in Sources */,
 				FA56D9ED2D4AC24C00FF6B8E /* StorageService.swift in Sources */,
 				FAC0F4912D49089A00DCCAEF /* AchievementView.swift in Sources */,
@@ -414,6 +442,7 @@
 				FAC0F48D2D48E88F00DCCAEF /* Menu.swift in Sources */,
 				FAC0F48F2D48E92E00DCCAEF /* MenuViewModel.swift in Sources */,
 				FAC183EF2D4938530047C80A /* DetailBallView.swift in Sources */,
+				FAB481722D4E8DCA008A85B5 /* FirebaseDatabaseService.swift in Sources */,
 				FAC0F4952D490FE500DCCAEF /* Achievement.swift in Sources */,
 				FAC183FD2D4959A00047C80A /* SelectTabButton.swift in Sources */,
 				FAB481682D4D4A03008A85B5 /* LoaderView.swift in Sources */,
@@ -422,13 +451,16 @@
 				FAB481662D4D48AD008A85B5 /* WebView.swift in Sources */,
 				FA3BF8D32D47BFDA00420546 /* ZMNeonBallsApp.swift in Sources */,
 				FAC184082D4A19D10047C80A /* CustomNavBackButton.swift in Sources */,
-				FA3BF8DE2D47C76500420546 /* Constants.swift in Sources */,
-				FA3BF8FD2D47F1DE00420546 /* LoadingView.swift in Sources */,
+				FAB4816E2D4E7E94008A85B5 /* ViewModel.swift in Sources */,
+				FA3BF8DE2D47C76500420546 /* Labels.swift in Sources */,
+				FA3BF8FD2D47F1DE00420546 /* LoadingGameView.swift in Sources */,
 				FA56D9E92D4A83BF00FF6B8E /* GameOverView.swift in Sources */,
 				FAC0F49B2D4921F500DCCAEF /* LibraryViewModel.swift in Sources */,
 				FAC183F42D49466D0047C80A /* CapsuleButtonView.swift in Sources */,
+				FAB4816C2D4E6711008A85B5 /* NetworkService.swift in Sources */,
 				FAC183F72D494B010047C80A /* View+.swift in Sources */,
 				FA3BF8EF2D47E24E00420546 /* DataStoreService.swift in Sources */,
+				FAB4817B2D4EA5FC008A85B5 /* BackUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,13 +2,9 @@ import SwiftUI
 import WebKit
 
 struct WebView: View {
+    @EnvironmentObject var viewModel: ViewModel
     @State private var isLoading = true
     @State private var progress: Double = 0.0
-    let url: URL
-    
-    init(url: URL) {
-        self.url = url
-    }
     
     var body: some View {
         ZStack {
@@ -18,7 +14,7 @@ struct WebView: View {
             WebViewRepresentable(
                 progress: $progress,
                 isLoading: $isLoading,
-                url: url
+                url: viewModel.url
             )
             .opacity(isLoading ? 0 : 1)
             .animation(.easeInOut, value: isLoading)
@@ -36,6 +32,13 @@ struct WebView: View {
                 }
             }
         }
+        .onAppear {
+            if !isLoading {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    viewModel.requestPermissionPush()
+                }
+            }
+        }
     }
 }
 
@@ -43,9 +46,9 @@ struct WebView: View {
 struct WebViewRepresentable: UIViewRepresentable {
     @Binding var progress: Double
     @Binding var isLoading: Bool
-    let url: URL
+    let url: URL?
     
-    init(progress: Binding<Double>, isLoading: Binding<Bool>, url: URL) {
+    init(progress: Binding<Double>, isLoading: Binding<Bool>, url: URL?) {
         self._progress = progress
         self._isLoading = isLoading
         self.url = url
@@ -70,8 +73,12 @@ struct WebViewRepresentable: UIViewRepresentable {
         
         context.coordinator.webView = webView
         
-        let request = URLRequest(url: url)
-        webView.load(request)
+        if let url {
+            let request = URLRequest(url: url)
+            webView.load(request)
+        } else {
+            print("WebView: url == nil")
+        }
         
         return webView
     }
@@ -107,12 +114,16 @@ struct WebViewRepresentable: UIViewRepresentable {
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            guard parent.isLoading else { return }
+            
             parent.progress = 1.0
             parent.isLoading = false
+            
+            webView.removeObserver(self, forKeyPath: "estimatedProgress")
         }
     }
 }
 
 #Preview {
-    WebView(url: URL(string: "https://developer.apple.com/")!)
+    WebView()
 }
