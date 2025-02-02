@@ -15,8 +15,9 @@ final class WebViewViewModel: ObservableObject {
             .sink { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
                     guard let self else { return }
-                    requestPermissionPush()
-                    requestPermissionCamera()
+                    requestPermissionPush() { [weak self] in
+                        self?.requestPermissionCamera()
+                    }
                 }
             }
     }
@@ -25,9 +26,11 @@ final class WebViewViewModel: ObservableObject {
         cancellable?.cancel()
     }
     
-    private func requestPermissionPush() {
+    private func requestPermissionPush(completion: @escaping ()->()) {
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {_, _ in }
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {_, _ in
+            completion()
+        }
     }
     
     private func requestPermissionCamera() {

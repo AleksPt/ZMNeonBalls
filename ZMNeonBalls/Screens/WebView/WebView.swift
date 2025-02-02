@@ -8,6 +8,9 @@ struct WebView: View {
     
     var body: some View {
         ZStack {
+            Color.black
+                .ignoresSafeArea()
+            
             WebViewRepresentable(
                 progress: $viewModel.progress,
                 isLoading: $viewModel.isLoading,
@@ -51,6 +54,7 @@ struct WebViewRepresentable: UIViewRepresentable {
         config.mediaTypesRequiringUserActionForPlayback = []
         
         let webView = WKWebView(frame: .zero, configuration: config)
+        webView.scrollView.bounces = false
         webView.navigationDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = true
         webView.configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()

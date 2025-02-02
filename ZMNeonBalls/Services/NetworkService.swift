@@ -80,13 +80,14 @@ final class NetworkService {
     }
     
     func fetchJsonData(from urlString: String, completion: @escaping (Result<Data, ApiError>) -> Void) {
+        
         guard let url = URL(string: urlString) else {
             completion(.failure(.badUrlFromFetchJsonData))
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error {
+            if let _ = error {
                 completion(.failure(.errorFromFetchJsonData))
                 return
             }
