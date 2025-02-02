@@ -18,22 +18,14 @@ struct WebView: View {
             .statusBar(hidden: true)
             
             LoaderView(
-                progress: CGFloat(viewModel.progress),
-                numProgress: Int(viewModel.progress * 100)
+                progress: CGFloat(viewModel.progress)
+//                numProgress: Int(viewModel.progress * 100)
             )
             .opacity(viewModel.isLoading ? 1 : 0)
             .animation(.easeInOut, value: viewModel.isLoading)
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.5)) {
                     viewModel.progress = 0.0
-                }
-            }
-        }
-        .onAppear {
-            if !viewModel.isLoading {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    viewModel.requestPermissionPush()
-                    viewModel.requestPermissionCamera()
                 }
             }
         }

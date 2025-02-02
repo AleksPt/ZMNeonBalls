@@ -10,27 +10,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         
-        #warning("доделать!")
-//        RemoteConfigManager.shared.getDataAboutInit { success in
-//            if success {
-//                if RemoteConfigManager.shared.isFbEnabled {
-//                    ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-//                } else {
-//                    print("facebook sdk disabled")
-//                }
-//                
-//                if RemoteConfigManager.shared.isAppsEnabled {
-//                    func applicationDidBecomeActive(_ application: UIApplication) {
-//                        AppsFlyerLib.shared().start()
-//                    }
-//                    AppsFlyerLib.shared().appsFlyerDevKey = Constants.appsFlyerDevKey
-//                    AppsFlyerLib.shared().appleAppID = Constants.appleAppID
-//                    Constants.appFlyerId = AppsFlyerLib.shared().getAppsFlyerUID()
-//                } else {
-//                    print("appsflyer sdk disabled")
-//                }
-//            }
-//        }
+        FirebaseDatabaseService.shared.isEnabledFacebook { result in
+            if result == true {
+                ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+            }
+        }
+        
+        FirebaseDatabaseService.shared.isEnabledAppsflyer { result in
+            if result == true {
+                func applicationDidBecomeActive(_ application: UIApplication) {
+                    AppsFlyerLib.shared().start()
+                }
+                AppsFlyerLib.shared().appsFlyerDevKey = Constants.appsFlyerDevKey
+                AppsFlyerLib.shared().appleAppID = Constants.appleAppID
+                Constants.appsFlyerID = AppsFlyerLib.shared().getAppsFlyerUID()
+            }
+        }
         
         Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self
@@ -40,6 +35,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
     
+    @MainActor
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any]) async
     -> UIBackgroundFetchResult {

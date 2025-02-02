@@ -7,10 +7,8 @@ final class FirebaseDatabaseService {
     private let deviceCollectionService = DeviceDataCollectionService.shared
     private var ref: DatabaseReference!
     
-    private init() {}
-    
-    func setRefParameters() {
-        ref = Database.database(url: Constants.firebaseDatabaseURL).reference()
+    private init() {
+        setRefParameters()
     }
     
     func getUrlFromDB(completion: @escaping (String?) -> Void) {
@@ -19,7 +17,6 @@ final class FirebaseDatabaseService {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let currentDate = Date()
         if let unlockDate = dateFormatter.date(from: unlockDateString), currentDate >= unlockDate {
-            setRefParameters()
             
             ref.observeSingleEvent(of: .value, with: { snapshot  in
                 guard let value = snapshot.value as? [String : Any],
@@ -47,5 +44,45 @@ final class FirebaseDatabaseService {
         } else {
             completion(nil)
         }
+    }
+    
+    func isEnabledAppsflyer(completion: @escaping (Bool) -> ()) {
+        ref.observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [String : Any],
+                  let enableAppsflyer = value["enable_apps"] as? Bool
+            else {
+                completion(false)
+                return
+            }
+            
+            switch enableAppsflyer {
+            case true:
+                completion(true)
+            case false:
+                completion(false)
+            }
+        }
+    }
+    
+    func isEnabledFacebook(completion: @escaping (Bool) -> ()) {
+        ref.observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [String : Any],
+                  let enableFacebook = value["enable_fb"] as? Bool
+            else {
+                completion(false)
+                return
+            }
+            
+            switch enableFacebook {
+            case true:
+                completion(true)
+            case false:
+                completion(false)
+            }
+        }
+    }
+    
+    private func setRefParameters() {
+        ref = Database.database(url: Constants.firebaseDatabaseURL).reference()
     }
 }

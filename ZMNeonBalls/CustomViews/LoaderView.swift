@@ -2,8 +2,6 @@ import SwiftUI
 
 struct LoaderView: View {
     var progress: CGFloat = 0.0
-    var numProgress: Int = 0
-    @State private var animate = false
 
     var body: some View {
         ZStack {
@@ -33,17 +31,12 @@ struct LoaderView: View {
                     )
                 )
                 .rotationEffect(.degrees(-90))
-                .animation(.linear, value: progress)
-            
-            HStack(alignment: .bottom, spacing: 0) {
-                Text("\(numProgress)").font(.largeTitle)
-                    .animation(.default, value: numProgress)
-                Text("%").padding(.bottom, 5)
-            }
-            .foregroundStyle(.white)
-            .transaction { transaction in
-                transaction.animation = nil
-            }
+//                .animation(.linear, value: progress)
+                .overlay {
+                    Text("\(Int(progress * 100))").font(.largeTitle)
+//                        .animation(.default, value: progress)
+                        .foregroundStyle(.white)
+                }
         }
     }
 }
@@ -51,7 +44,7 @@ struct LoaderView: View {
 #Preview {
     ZStack {
         Color.black
-        LoaderView(progress: 5, numProgress: 55)
+        LoaderView(progress: 0.5)
     }
     .ignoresSafeArea()
 }
