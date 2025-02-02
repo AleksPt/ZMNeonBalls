@@ -4,33 +4,35 @@ final class ViewModel: ObservableObject {
     private let firebaseDatabaseService = FirebaseDatabaseService.shared
     private let networkService = NetworkService.shared
     
-    @Published var url: URL? {
-        didSet {
-            if let url {
-                openWebView = true
-            }
-        }
-    }
+    var url: URL?
     
-    @Published var isShowGame: Bool {
-        didSet {
-            if isShowGame == false {
-                getFinalUrl()
-            }
-        }
-    }
-    
-    @Published var openWebView: Bool = false
+    @Published var isShowGame: Bool
     
     init() {
-        isShowGame = UserDefaults.standard.bool(forKey: UDKeys.showGame)
+        let isShowGameUD = UserDefaults.standard.bool(forKey: UDKeys.showGame)
+        isShowGame = isShowGameUD
+        
+        guard !isShowGame else { return }
+        
+        let urlStringUD = UserDefaults.standard.string(forKey: UDKeys.url)
+        
+        guard let urlStringUD else {
+            getFinalUrl()
+            return
+        }
+        
+        url = URL(string: urlStringUD)
     }
     
     func getFinalUrl() {
         firebaseDatabaseService.getUrlFromDB { [weak self] stringUrl in
             guard let self else { return }
             
-            guard let stringUrl else { return }
+            guard let stringUrl else {
+                isShowGame = true
+                saveUDisShowGame(true)
+                return
+            }
             
             networkService.fetchJsonData(from: stringUrl) { [weak self] result in
                 guard let self else { return }
@@ -43,26 +45,34 @@ final class ViewModel: ObservableObject {
                         switch result {
                         case .success(let successUrl):
                             url = successUrl
-                            setIsShowGame(false)
+                            saveUDisShowGame(false)
+                            saveUDurlString(successUrl)
                         case .failure(let failure):
-                            setIsShowGame(true)
+                            isShowGame = true
+                            saveUDisShowGame(true)
                             print(failure.rawValue)
                         }
                     }
                 case .failure(let failure):
-                    setIsShowGame(true)
+                    isShowGame = true
+                    saveUDisShowGame(true)
                     print(failure.rawValue)
                 }
             }
         }
     }
-    
-    func setIsShowGame(_ value: Bool) {
-        UserDefaults.standard.set(value, forKey: UDKeys.showGame)
-    }
-    
+        
     func requestPermissionPush() {
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {_, _ in }
+    }
+    
+    private func saveUDisShowGame(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: UDKeys.showGame)
+    }
+
+    private func saveUDurlString(_ url: URL) {
+        let urlString = url.absoluteString
+        UserDefaults.standard.set(urlString, forKey: UDKeys.showGame)
     }
 }

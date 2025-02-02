@@ -37,6 +37,7 @@
 		FAB481742D4E8E7F008A85B5 /* DeviceDataCollectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB481732D4E8E7F008A85B5 /* DeviceDataCollectionService.swift */; };
 		FAB4817B2D4EA5FC008A85B5 /* BackUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4817A2D4EA5FC008A85B5 /* BackUrl.swift */; };
 		FAB4817D2D4EB47C008A85B5 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4817C2D4EB47C008A85B5 /* ApiError.swift */; };
+		FAB4817F2D4EC605008A85B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4817E2D4EC605008A85B5 /* AppDelegate.swift */; };
 		FAC0F48D2D48E88F00DCCAEF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F48C2D48E88F00DCCAEF /* Menu.swift */; };
 		FAC0F48F2D48E92E00DCCAEF /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */; };
 		FAC0F4912D49089A00DCCAEF /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0F4902D49089A00DCCAEF /* AchievementView.swift */; };
@@ -85,6 +86,7 @@
 		FAB481732D4E8E7F008A85B5 /* DeviceDataCollectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDataCollectionService.swift; sourceTree = "<group>"; };
 		FAB4817A2D4EA5FC008A85B5 /* BackUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackUrl.swift; sourceTree = "<group>"; };
 		FAB4817C2D4EB47C008A85B5 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		FAB4817E2D4EC605008A85B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAB4E2502D4D253900E4EED5 /* ZMNeonBalls.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZMNeonBalls.entitlements; sourceTree = "<group>"; };
 		FAC0F48C2D48E88F00DCCAEF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		FAC0F48E2D48E92E00DCCAEF /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB4816D2D4E7E94008A85B5 /* ViewModel.swift */,
+				FAB4817E2D4EC605008A85B5 /* AppDelegate.swift */,
 				FA3BF8CA2D47BFDA00420546 /* ZMNeonBallsApp.swift */,
 			);
 			path = App;
@@ -438,6 +441,7 @@
 				FAC183FB2D494D230047C80A /* CircleButtonView.swift in Sources */,
 				FA56D9ED2D4AC24C00FF6B8E /* StorageService.swift in Sources */,
 				FAC0F4912D49089A00DCCAEF /* AchievementView.swift in Sources */,
+				FAB4817F2D4EC605008A85B5 /* AppDelegate.swift in Sources */,
 				FAC183F22D49395D0047C80A /* HeaderView.swift in Sources */,
 				FAC0F48D2D48E88F00DCCAEF /* Menu.swift in Sources */,
 				FAC0F48F2D48E92E00DCCAEF /* MenuViewModel.swift in Sources */,
