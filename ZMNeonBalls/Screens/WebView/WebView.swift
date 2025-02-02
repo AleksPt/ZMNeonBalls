@@ -2,13 +2,9 @@ import SwiftUI
 import WebKit
 
 struct WebView: View {
-    @State private var isLoading = true
-    @State private var progress: Double = 0.0
-    let url: URL
+    @StateObject var viewModel = WebViewViewModel()
     
-    init(url: URL) {
-        self.url = url
-    }
+    var url: URL
     
     var body: some View {
         ZStack {
@@ -16,23 +12,23 @@ struct WebView: View {
                 .ignoresSafeArea()
             
             WebViewRepresentable(
-                progress: $progress,
-                isLoading: $isLoading,
+                progress: $viewModel.progress,
+                isLoading: $viewModel.isLoading,
                 url: url
             )
-            .opacity(isLoading ? 0 : 1)
-            .animation(.easeInOut, value: isLoading)
+            .opacity(viewModel.isLoading ? 0 : 1)
+            .animation(.easeInOut, value: viewModel.isLoading)
             .statusBar(hidden: true)
             
             LoaderView(
-                progress: CGFloat(progress),
-                numProgress: Int(progress * 100)
+                progress: CGFloat(viewModel.progress)
+//                numProgress: Int(viewModel.progress * 100)
             )
-            .opacity(isLoading ? 1 : 0)
-            .animation(.easeInOut, value: isLoading)
+            .opacity(viewModel.isLoading ? 1 : 0)
+            .animation(.easeInOut, value: viewModel.isLoading)
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.5)) {
-                    progress = 0.0
+                    viewModel.progress = 0.0
                 }
             }
         }
@@ -58,6 +54,7 @@ struct WebViewRepresentable: UIViewRepresentable {
         config.mediaTypesRequiringUserActionForPlayback = []
         
         let webView = WKWebView(frame: .zero, configuration: config)
+        webView.scrollView.bounces = false
         webView.navigationDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = true
         webView.configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()
@@ -107,12 +104,16 @@ struct WebViewRepresentable: UIViewRepresentable {
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            guard parent.isLoading else { return }
+            
             parent.progress = 1.0
             parent.isLoading = false
+            
+            webView.removeObserver(self, forKeyPath: "estimatedProgress")
         }
     }
 }
 
 #Preview {
-    WebView(url: URL(string: "https://developer.apple.com/")!)
+    WebView(url: URL(string: "https://www.google.ru/")!)
 }

@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:901470426450:ios:10cd297d6de6c743c7168b</string>
+	<key>DATABASE_URL</key>
+	<string>https://neonballs-e423a-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>
