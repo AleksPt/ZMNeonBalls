@@ -6,7 +6,9 @@ struct SplashScreen: View {
     var body: some View {
         switch splashViewModel.viewState {
         case .loading:
-            LoaderView()
+            withAnimation {
+                LoaderView()                
+            }
         case .game:
             LoadingGameView()
         case .webview(let url):
