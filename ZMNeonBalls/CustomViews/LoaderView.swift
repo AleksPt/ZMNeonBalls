@@ -1,12 +1,15 @@
 import SwiftUI
 
 struct LoaderView: View {
-    var progress: CGFloat
-    var numProgress: Int
+    var progress: CGFloat = 0.0
+    var numProgress: Int = 0
     @State private var animate = false
 
     var body: some View {
         ZStack {
+            Color.black
+                .ignoresSafeArea()
+            
             Circle()
                 .stroke(lineWidth: 15)
                 .frame(width: 150, height: 150)

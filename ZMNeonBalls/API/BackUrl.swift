@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct BackUrl: Decodable {
+#warning("не забудь заменить обратно!")
+//struct BackUrl: Decodable {
+//    let backUrl1: String
+//    let backUrl2: String
+//}
+
+struct BackUrl: Codable {
+    let record: Record
+}
+
+struct Record: Codable {
     let backUrl1: String
     let backUrl2: String
 }

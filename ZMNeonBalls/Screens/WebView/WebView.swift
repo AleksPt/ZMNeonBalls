@@ -2,40 +2,38 @@ import SwiftUI
 import WebKit
 
 struct WebView: View {
-    @EnvironmentObject var viewModel: ViewModel
-    @State private var isLoading = true
-    @State private var progress: Double = 0.0
+    @StateObject var viewModel = WebViewViewModel()
+    
+    var url: URL
     
     var body: some View {
         ZStack {
-            Color.black
-                .ignoresSafeArea()
-            
             WebViewRepresentable(
-                progress: $progress,
-                isLoading: $isLoading,
-                url: viewModel.url
+                progress: $viewModel.progress,
+                isLoading: $viewModel.isLoading,
+                url: url
             )
-            .opacity(isLoading ? 0 : 1)
-            .animation(.easeInOut, value: isLoading)
+            .opacity(viewModel.isLoading ? 0 : 1)
+            .animation(.easeInOut, value: viewModel.isLoading)
             .statusBar(hidden: true)
             
             LoaderView(
-                progress: CGFloat(progress),
-                numProgress: Int(progress * 100)
+                progress: CGFloat(viewModel.progress),
+                numProgress: Int(viewModel.progress * 100)
             )
-            .opacity(isLoading ? 1 : 0)
-            .animation(.easeInOut, value: isLoading)
+            .opacity(viewModel.isLoading ? 1 : 0)
+            .animation(.easeInOut, value: viewModel.isLoading)
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.5)) {
-                    progress = 0.0
+                    viewModel.progress = 0.0
                 }
             }
         }
         .onAppear {
-            if !isLoading {
+            if !viewModel.isLoading {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     viewModel.requestPermissionPush()
+                    viewModel.requestPermissionCamera()
                 }
             }
         }
@@ -46,9 +44,9 @@ struct WebView: View {
 struct WebViewRepresentable: UIViewRepresentable {
     @Binding var progress: Double
     @Binding var isLoading: Bool
-    let url: URL?
+    let url: URL
     
-    init(progress: Binding<Double>, isLoading: Binding<Bool>, url: URL?) {
+    init(progress: Binding<Double>, isLoading: Binding<Bool>, url: URL) {
         self._progress = progress
         self._isLoading = isLoading
         self.url = url
@@ -73,12 +71,8 @@ struct WebViewRepresentable: UIViewRepresentable {
         
         context.coordinator.webView = webView
         
-        if let url {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        } else {
-            print("WebView: url == nil")
-        }
+        let request = URLRequest(url: url)
+        webView.load(request)
         
         return webView
     }
@@ -125,5 +119,5 @@ struct WebViewRepresentable: UIViewRepresentable {
 }
 
 #Preview {
-    WebView()
+    WebView(url: URL(string: "https://www.google.ru/")!)
 }

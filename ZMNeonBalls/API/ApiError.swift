@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ApiError: Error, String {
+enum ApiError: String, Error {
     case badFinalUrl
     case badUrlFromFetchJsonData
     case failDataFromFetchJsonData
