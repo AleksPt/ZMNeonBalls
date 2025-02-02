@@ -1,10 +1,3 @@
-//
-//  DetailBallView.swift
-//  ZMNeonBalls
-//
-//  Created by Алексей on 28.01.2025.
-//
-
 import SwiftUI
 
 struct DetailBallView: View {
@@ -74,12 +67,10 @@ struct DetailBallView: View {
                     FactViewDetailBall(ball: $viewModel.balls[indexBall])
                         .frame(height: K.screenWidth / 2.012)
                         .padding(.horizontal)
-//                        .padding(.bottom, 38)
                 default:
                     GameViewDetailBall(ball: $viewModel.balls[indexBall])
                         .frame(height: K.screenWidth / 2.012)
                         .padding(.horizontal)
-//                        .padding(.bottom, 38)
                 }
                 
                 if selectedCapsuleButton == 0 {

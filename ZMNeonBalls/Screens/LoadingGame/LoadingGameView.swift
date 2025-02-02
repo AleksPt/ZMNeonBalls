@@ -1,13 +1,9 @@
-//
-//  LoadingView.swift
-//  ZMNeonBalls
-//
-//  Created by Алексей on 27.01.2025.
-//
-
 import SwiftUI
 
-struct LoadingView: View {
+struct LoadingGameView: View {
+    @StateObject private var menuViewModel = MenuViewModel()
+    @StateObject private var libraryViewModel = LibraryViewModel()
+    @StateObject private var quizViewModel = QuizViewModel()
     @State private var goToMenuView = false
 
     var body: some View {
@@ -15,6 +11,9 @@ struct LoadingView: View {
             VStack {
                 if goToMenuView {
                     MenuView()
+                        .environmentObject(menuViewModel)
+                        .environmentObject(libraryViewModel)
+                        .environmentObject(quizViewModel)
                 } else {
                     ZStack {
                         BackgroundView()
@@ -81,7 +80,7 @@ struct LoadingView: View {
 }
 
 #Preview {
-    LoadingView()
+    LoadingGameView()
         .environmentObject(LibraryViewModel())
         .environmentObject(MenuViewModel())
 }
