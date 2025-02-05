@@ -2,7 +2,8 @@ import SwiftUI
 
 struct QuizView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var quizViewModel: QuizViewModel
+    @ObservedObject var quizViewModel: QuizViewModel
+    @ObservedObject var menuViewModel: MenuViewModel
     @State private var isSelectedAnswer = false
     @State private var selectedAnswer: Int? = nil
     
@@ -13,7 +14,7 @@ struct QuizView: View {
     
     var body: some View {
         if quizViewModel.isShowGameOverView {
-            GameOverView()
+            GameOverView(quizViewModel: quizViewModel, menuViewModel: menuViewModel)
         } else {
             ZStack {
                 BackgroundView()
@@ -345,7 +346,7 @@ struct AnswersView: View {
 
 #Preview {
     NavigationView {
-        QuizView()
+        QuizView(quizViewModel: QuizViewModel(), menuViewModel: MenuViewModel())
             .environmentObject(QuizViewModel())
     }
 }

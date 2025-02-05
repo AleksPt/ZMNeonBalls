@@ -2,8 +2,8 @@ import SwiftUI
 
 struct GameOverView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var quizViewModel: QuizViewModel
-    @EnvironmentObject var menuViewModel: MenuViewModel
+    @ObservedObject var quizViewModel: QuizViewModel
+    @ObservedObject var menuViewModel: MenuViewModel
     private let storageService: StorageService = StorageService.shared
     @State private var countNewRecords: Int = 0
     
@@ -124,7 +124,7 @@ fileprivate struct AchievementsGameOverView: View {
 
 #Preview {
     NavigationView {
-        GameOverView()
+        GameOverView(quizViewModel: QuizViewModel(), menuViewModel: MenuViewModel())
             .environmentObject(QuizViewModel())
             .environmentObject(MenuViewModel())
     }

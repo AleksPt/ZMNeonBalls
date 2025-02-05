@@ -3,6 +3,7 @@ import SwiftUI
 struct MenuView: View {
     @EnvironmentObject private var menuViewModel: MenuViewModel
     @EnvironmentObject private var libraryViewModel: LibraryViewModel
+    @EnvironmentObject private var quizViewModel: QuizViewModel
     @State private var infoIsChecked: Bool = true
     @State private var playIsChecked: Bool = false
     @State private var recordIsChecked: Bool = false
@@ -60,7 +61,7 @@ struct MenuView: View {
                 NavigationLink(destination: LibraryView(), tag: 0, selection: $activeTab) {
                     EmptyView()
                 }
-                NavigationLink(destination: QuizView(), tag: 1, selection: $activeTab) {
+                NavigationLink(destination: QuizView(quizViewModel: quizViewModel, menuViewModel: menuViewModel), tag: 1, selection: $activeTab) {
                     EmptyView()
                 }
                 

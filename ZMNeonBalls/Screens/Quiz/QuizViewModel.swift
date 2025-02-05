@@ -30,7 +30,6 @@ final class QuizViewModel: ObservableObject {
     
     private var currentComboCount: Int = 0
     private var timerRound: Timer?
-    private var timerAllGame: Timer?
     
     init() {
         questions = dataStore.questions
@@ -61,7 +60,7 @@ final class QuizViewModel: ObservableObject {
         }
         
         currentStep += 1
-        resetTimer()
+        startTimer()
     }
     
     func finishQuiz(abortQuiz: Bool = false) {
@@ -76,6 +75,7 @@ final class QuizViewModel: ObservableObject {
     }
     
     func startTimer() {
+        stopTimer()
         timeProgress = totalTime
         
         timerRound = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
@@ -90,15 +90,10 @@ final class QuizViewModel: ObservableObject {
         }
     }
     
-    func resetTimer() {
-        stopTimer()
-        startTimer()
-    }
-    
     func stopTimer() {
         timeProgress = 0
         timerRound?.invalidate()
-        timerAllGame?.invalidate()
+        timerRound = nil
     }
     
     private func saveResult() {
