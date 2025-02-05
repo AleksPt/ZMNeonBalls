@@ -5,7 +5,7 @@ final class NetworkService {
     
     private init() {}
     
-    func assembleUrl(backUrl1: String, backUrl2: String) -> String {
+    private func assembleUrl(backUrl1: String, backUrl2: String) -> String {
         let urlPattern = #"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-\/]*)?$"#
         let regex = try! NSRegularExpression(pattern: urlPattern)
         let range1 = NSRange(location: 0, length: backUrl1.utf16.count)
@@ -17,9 +17,9 @@ final class NetworkService {
         
         var finalUrl: String
         if isBackUrl1Base {
-            finalUrl = "https://" + cleanBackUrl1 + cleanBackUrl2
-        } else {
             finalUrl = "https://" + cleanBackUrl2 + cleanBackUrl1
+        } else {
+            finalUrl = "https://" + cleanBackUrl1 + cleanBackUrl2
         }
         
         return finalUrl
