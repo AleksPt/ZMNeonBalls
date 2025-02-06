@@ -1,6 +1,5 @@
 import SwiftUI
 import Combine
-import AVFoundation
 
 final class WebViewViewModel: ObservableObject {
     @Published var isLoading = true
@@ -15,9 +14,7 @@ final class WebViewViewModel: ObservableObject {
             .sink { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
                     guard let self else { return }
-                    requestPermissionPush() { [weak self] in
-                        self?.requestPermissionCamera()
-                    }
+                    requestPermissionPush()
                 }
             }
     }
@@ -26,14 +23,8 @@ final class WebViewViewModel: ObservableObject {
         cancellable?.cancel()
     }
     
-    private func requestPermissionPush(completion: @escaping ()->()) {
+    private func requestPermissionPush() {
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {_, _ in
-            completion()
-        }
-    }
-    
-    private func requestPermissionCamera() {
-        AVCaptureDevice.requestAccess(for: .video) { _ in }
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {_, _ in }
     }
 }

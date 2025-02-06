@@ -6,4 +6,5 @@ enum ApiError: String, Error {
     case failDataFromFetchJsonData
     case errorFromDecodeJsonData
     case errorFromFetchJsonData
+    case emptyUrl
 }

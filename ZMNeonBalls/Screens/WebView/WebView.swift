@@ -1,5 +1,5 @@
 import SwiftUI
-import WebKit
+@preconcurrency import WebKit
 
 struct WebView: View {
     @StateObject var viewModel = WebViewViewModel()
@@ -7,6 +7,7 @@ struct WebView: View {
     var url: URL
     
     var body: some View {
+        
         ZStack {
             Color.black
                 .ignoresSafeArea()
@@ -22,7 +23,6 @@ struct WebView: View {
             
             LoaderView(
                 progress: CGFloat(viewModel.progress)
-//                numProgress: Int(viewModel.progress * 100)
             )
             .opacity(viewModel.isLoading ? 1 : 0)
             .animation(.easeInOut, value: viewModel.isLoading)
@@ -51,11 +51,13 @@ struct WebViewRepresentable: UIViewRepresentable {
         let config = WKWebViewConfiguration()
         config.defaultWebpagePreferences.allowsContentJavaScript = true
         config.preferences.javaScriptCanOpenWindowsAutomatically = true
+        config.allowsInlineMediaPlayback = true
         config.mediaTypesRequiringUserActionForPlayback = []
         
         let webView = WKWebView(frame: .zero, configuration: config)
         webView.scrollView.bounces = false
         webView.navigationDelegate = context.coordinator
+        webView.uiDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = true
         webView.configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()
         webView.customUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15A5341f Safari/604.1"
@@ -88,7 +90,6 @@ struct WebViewRepresentable: UIViewRepresentable {
             super.init()
         }
         
-        
         override func observeValue(forKeyPath keyPath: String?,
                                    of object: Any?,
                                    change: [NSKeyValueChangeKey : Any]?,
@@ -110,6 +111,63 @@ struct WebViewRepresentable: UIViewRepresentable {
             parent.isLoading = false
             
             webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        }
+        
+        func webView(
+            _ webView: WKWebView,
+            requestMediaCapturePermissionFor origin: WKSecurityOrigin,
+            initiatedByFrame frame: WKFrameInfo,
+            type: WKMediaCaptureType,
+            decisionHandler: @escaping @MainActor (WKPermissionDecision) -> Void
+        ) {
+            decisionHandler(.grant)
+        }
+        
+        func webView(
+            _ webView: WKWebView,
+            decidePolicyFor navigationAction: WKNavigationAction,
+            decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+        ) {
+            if let url = navigationAction.request.url,
+                ["tg", "viber", "whatsapp"].contains(url.scheme) {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+                decisionHandler(.cancel)
+            } else {
+                decisionHandler(.allow)
+            }
+        }
+
+        
+        func webView(
+            _ webView: WKWebView,
+            createWebViewWith configuration: WKWebViewConfiguration,
+            for navigationAction: WKNavigationAction,
+            windowFeatures: WKWindowFeatures
+        ) -> WKWebView? {
+            if navigationAction.targetFrame == nil,
+                let url = navigationAction.request.url {
+                webView.load(URLRequest(url: url))
+            }
+            return nil
+        }
+        
+        func webView(
+            _ webView: WKWebView,
+            runJavaScriptAlertPanelWithMessage message: String,
+            initiatedByFrame frame: WKFrameInfo,
+            completionHandler: @escaping () -> Void
+        ) {
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let viewController = windowScene.windows.first(where: { $0.isKeyWindow })?.rootViewController {
+                
+                let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                    completionHandler()
+                }))
+                viewController.present(alert, animated: true, completion: nil)
+            }
         }
     }
 }
